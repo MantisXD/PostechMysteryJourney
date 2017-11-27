@@ -1,0 +1,33 @@
+P 0
+S 0
+
+NPCCount 2
+
+NPC 17 x=150 y=150 //17번 Sprite를 쓰는 NPC를 배치하겠습니다.
+NPC 12 x=100 y=300
+
+NarrStart
+
+Speaker NULL
+Script "나레이션 테스트 텍스트 입니다"
+
+NarrEnd
+
+ScriptList 12 1 Start
+
+Speaker twelve
+LeftSprite 1 //대사창의 왼쪽에 1번째 Sprite를 세웁니다.
+IsLeftSpriteBright true //그리고 그걸 밝게 합니다.
+Script "첫번째 대사입니다."
+
+Speaker seventeen
+RightSprite 2 //대사창의 오른쪽에 2번째 Sprite를 세웁니다.
+IsLeftSpriteBright false //왼쪽에 세워둔걸 어둡게 합니다.
+IsRightSpriteBright true //오른쪽에 세워둔걸 밝게 합니다.
+Script "두번째 대사입니다."
+
+Riddle 12 //12번째 수수께끼를 내보자
+RiddleSuccess 2 //성공했으면 Phase 2로 넘어갑니다.
+RiddleFail 3 //실패했으면 Phase 3으로 넘어갑니다.
+
+ScriptList End
