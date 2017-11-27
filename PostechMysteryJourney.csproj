@@ -228,11 +228,15 @@
     <Compile Include="Assets\Resources\Test1.cs" />
     <Compile Include="Assets\Scripts\BlackScreenScript.cs" />
     <Compile Include="Assets\Scripts\GameManager\NPCSpriteHandler.cs" />
+    <Compile Include="Assets\Scripts\GameManager\ScriptHandler.cs" />
     <Compile Include="Assets\Scripts\ManagerScript.cs" />
     <Compile Include="Assets\Scripts\NPC.cs" />
+    <Compile Include="Assets\Scripts\NPCScriptHandler.cs" />
     <Compile Include="Assets\Scripts\Script\ScriptPrinter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\Images\StandingNPC\NPCmap.txt" />
+    <None Include="Assets\Resources\Images\StandingNPC\NPCmap_Readme.txt" />
     <None Include="Assets\Resources\Script\ScriptExample.txt" />
     <None Include="Assets\Resources\Script\ScriptReadme.txt" />
   </ItemGroup>

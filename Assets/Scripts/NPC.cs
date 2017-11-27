@@ -14,7 +14,7 @@ public class NPC : MonoBehaviour {
     //2. 스크립트 오브젝트는 NPC에게 적절한 Script(String)을 리턴합니다.
     //3. 리턴받은 Script(문자열)을 ScriptPrinter에게 전달합니다.
     //이거 만들어 주세요
- 
+
     //NPC의 ID입니다.
     int NPC_ID;
     //NPC가 현재 출력해야 할 대사입니다. 대사 출력창에 넘겨주기 위한 임시 변수 역할도 합니다.
@@ -27,21 +27,11 @@ public class NPC : MonoBehaviour {
     public GameObject ScriptPrinter;
     //GameManager를 저장하는 Object입니다. UnityEditor에서 미리 할당받은채로 시작.
     public GameObject GameManager;
-
-    //Constructor(추가적인 내용이 필요하면 넣어주세요)
-    public NPC(int ID)
-    {
-        NPC_ID = ID;
-    }
-    //Default Constructor(오류로 인해 할당이 되지 않을 경우 더미 NPC를 생성합니다)
-    public NPC()
-    {
-        NPC_ID = 0;
-    }
-
 	// Use this for initialization
 	void Start () {
-        SetSprite();
+
+        //더미 Sprite를 일단 할당
+        SetSprite(0);
 	}
 	
 	// Update is called once per frame
@@ -49,14 +39,18 @@ public class NPC : MonoBehaviour {
 		
 	}
 
-    void SetSprite()
+    public void SetSprite(int ID)
     {
+        NPC_ID = ID;
         //받아서
         Sprite temp;
         temp = GameManager.GetComponent<NPCSpriteHandler>().GetNPCSprite(NPC_ID);
 
         //할당해
         this.GetComponent<Image>().sprite = temp;
+        //그리고 크기를 원본의 1/4 크기(가로 절반, 세로 절반)로 할당합니다.
+        this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, temp.textureRect.height/2);
+        this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, temp.textureRect.width/2);
     }
 
     //게임 데이터 오브젝트에 저장된 Script 데이터에서 적절한 Script를 받아오는 Method입니다.
