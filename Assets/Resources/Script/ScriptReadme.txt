@@ -1,81 +1,81 @@
-//¿©·¯ Å°¿öµå¸¦ ÅëÇØ ¸í·ÉÀ» ±¸ºÐÇÕ´Ï´Ù.
-//°¢ Å°¿öµå »çÀÌ´Â Space·Î ±¸ºÐÇÕ´Ï´Ù.
-//Å°¿öµå ¼³¸í¶õ¿¡ ÀÖ´Â ´ë°ýÈ£ ¼Ó ³»¿ëÀ» ½ÇÁ¦·Î ÀÔ·ÂÇÒ ¶§´Â ´ë°ýÈ£¸¦ ¹þ°ÜÁÖ¼¼¿ä
-//Readme ÆÄÀÏ¿¡ ÀûÀº °ÍÃ³·³ // ÁÖ¼®À» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù. ´Ü, /* */´Â »ç¿ë ºÒ°¡´ÉÇÕ´Ï´Ù.
+ï»¿//ì—¬ëŸ¬ í‚¤ì›Œë“œë¥¼ í†µí•´ ëª…ë ¹ì„ êµ¬ë¶„í•©ë‹ˆë‹¤.
+//ê° í‚¤ì›Œë“œ ì‚¬ì´ëŠ” Spaceë¡œ êµ¬ë¶„í•©ë‹ˆë‹¤.
+//í‚¤ì›Œë“œ ì„¤ëª…ëž€ì— ìžˆëŠ” ëŒ€ê´„í˜¸ ì† ë‚´ìš©ì„ ì‹¤ì œë¡œ ìž…ë ¥í•  ë•ŒëŠ” ëŒ€ê´„í˜¸ë¥¼ ë²—ê²¨ì£¼ì„¸ìš”
+//Readme íŒŒì¼ì— ì ì€ ê²ƒì²˜ëŸ¼ // ì£¼ì„ì„ ì‚¬ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ë‹¨, /* */ëŠ” ì‚¬ìš© ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-//¸Ç ¾Õ¿¡ S°¡ ºÙÀº °ÍÀº ¾À ³Ñ¹ö¸¦ ÀÇ¹ÌÇÏ¸ç, ¸Ç Ã¹¹øÂ° ÁÙ¿¡ ³Ñ¹ö¸¦ ±âÀçÇØ ÁÖ¼¼¿ä. ÇÑ ÅØ½ºÆ® ÆÄÀÏ¿¡´Â ÇÏ³ªÀÇ ¾À¸¸ µé¾î°¡¾ß ÇÕ´Ï´Ù.
+//ë§¨ ì•žì— Sê°€ ë¶™ì€ ê²ƒì€ ì”¬ ë„˜ë²„ë¥¼ ì˜ë¯¸í•˜ë©°, ë§¨ ì²«ë²ˆì§¸ ì¤„ì— ë„˜ë²„ë¥¼ ê¸°ìž¬í•´ ì£¼ì„¸ìš”. í•œ í…ìŠ¤íŠ¸ íŒŒì¼ì—ëŠ” í•˜ë‚˜ì˜ ì”¬ë§Œ ë“¤ì–´ê°€ì•¼ í•©ë‹ˆë‹¤.
 
-S [¾À ³Ñ¹ö]
-//¸Ç ¾Õ¿¡ P°¡ ºÙÀº °ÍÀº Phase¸¦ ³ªÅ¸³»¸ç, °¢ ¾À¿¡¼­ »óÈ²À» ±¸ºÐÇÏ±â À§ÇØ »ç¿ëÇÕ´Ï´Ù. ÇÑ ÅØ½ºÆ® ÆÄÀÏ¿¡´Â ÇÏ³ªÀÇ Phase¸¸ µé¾î°¡¾ß ÇÕ´Ï´Ù.
-P [ÆäÀÌÁî ³Ñ¹ö]
+S [ì”¬ ë„˜ë²„]
+//ë§¨ ì•žì— Pê°€ ë¶™ì€ ê²ƒì€ Phaseë¥¼ ë‚˜íƒ€ë‚´ë©°, ê° ì”¬ì—ì„œ ìƒí™©ì„ êµ¬ë¶„í•˜ê¸° ìœ„í•´ ì‚¬ìš©í•©ë‹ˆë‹¤. í•œ í…ìŠ¤íŠ¸ íŒŒì¼ì—ëŠ” í•˜ë‚˜ì˜ Phaseë§Œ ë“¤ì–´ê°€ì•¼ í•©ë‹ˆë‹¤.
+P [íŽ˜ì´ì¦ˆ ë„˜ë²„]
 
-//Scene°ú Phase Number¸¦ ´Ù ±âÀçÇßÀ¸¸é ¹èÄ¡ÇÒ NPCÀÇ ¼ö¸¦ ´ÙÀ½°ú °°ÀÌ ÀÔ·ÂÇØÁÖ¼¼¿ä:
+//Sceneê³¼ Phase Numberë¥¼ ë‹¤ ê¸°ìž¬í–ˆìœ¼ë©´ ë°°ì¹˜í•  NPCì˜ ìˆ˜ë¥¼ ë‹¤ìŒê³¼ ê°™ì´ ìž…ë ¥í•´ì£¼ì„¸ìš”:
 
-NPCCount [NPC ¼ö]
+NPCCount [NPC ìˆ˜]
 
-//NPCÀÇ ¹øÈ£(1ºÎÅÍ ½ÃÀÛÇÏ°Å³ª, °øÂ÷°¡ 1ÀÎ µîÂ÷¼ö¿­ÀÏ ÇÊ¿ä´Â ¾ø½À´Ï´Ù)¿Í ÁÂÇ¥¸¦ ´ÙÀ½°ú °°ÀÌ ÀÔ·ÂÇØÁÖ¼¼¿ä(ÁÂÇ¥°è´Â ÃßÈÄ Á¤ÇÒ°Å¿¡¿ä):
-//°¢ NPC°¡ ¾î¶² Image¸¦ »ç¿ëÇÏ´ÂÁö´Â NPCÀÇ ¹øÈ£·Î °áÁ¤µË´Ï´Ù.
+//NPCì˜ ë²ˆí˜¸(1ë¶€í„° ì‹œìž‘í•˜ê±°ë‚˜, ê³µì°¨ê°€ 1ì¸ ë“±ì°¨ìˆ˜ì—´ì¼ í•„ìš”ëŠ” ì—†ìŠµë‹ˆë‹¤)ì™€ ì¢Œí‘œë¥¼ ë‹¤ìŒê³¼ ê°™ì´ ìž…ë ¥í•´ì£¼ì„¸ìš”(ì¢Œí‘œê³„ëŠ” ì¶”í›„ ì •í• ê±°ì—ìš”):
+//ê° NPCê°€ ì–´ë–¤ Imageë¥¼ ì‚¬ìš©í•˜ëŠ”ì§€ëŠ” NPCì˜ ë²ˆí˜¸ë¡œ ê²°ì •ë©ë‹ˆë‹¤.
 
-NPC 1 x=[xÃà ÁÂÇ¥] y=[yÃà ÁÂÇ¥]
+NPC 1 x=[xì¶• ì¢Œí‘œ] y=[yì¶• ì¢Œí‘œ]
 
-//¿©´ã: name°ú script ¿µ¿ªÀº Å«µû¿ÈÇ¥¸¦ ±âÁØÀ¸·Î parsing ÇÑ µÚ ´ë»ç Å°¿öµå¸¦ Á¦¿ÜÇÏ°ï ¶ç¾î¾²±â·Î parsingÇÕ´Ï´Ù.
-//³ª¸ÓÁö´Â ±×³É ¶ç¾î¾²±â·Î parsingÇÕ´Ï´Ù
+//ì—¬ë‹´: nameê³¼ script ì˜ì—­ì€ í°ë”°ì˜´í‘œë¥¼ ê¸°ì¤€ìœ¼ë¡œ parsing í•œ ë’¤ ëŒ€ì‚¬ í‚¤ì›Œë“œë¥¼ ì œì™¸í•˜ê³¤ ë„ì–´ì“°ê¸°ë¡œ parsingí•©ë‹ˆë‹¤.
+//ë‚˜ë¨¸ì§€ëŠ” ê·¸ëƒ¥ ë„ì–´ì“°ê¸°ë¡œ parsingí•©ë‹ˆë‹¤
 
-//NPC¸¦ ´Ù ÀûÀ¸¼ÌÀ¸¸é ³ª·¡ÀÌ¼Ç ´ë»ç¸¦ ´ÙÀ½°ú °°ÀÌ ÀÔ·ÂÇØÁÖ¼¼¿ä(Phase°¡ ½ÃÀÛµÉ ¶§ Ãâ·ÂµÉ ´ë»çÀÔ´Ï´Ù)
-//³ª·¹ÀÌÅÍ ÀÌ¸§Àº ÈÄ¼úÇÒ NPC ÀÌ¸§°ú µ¿ÀÏÇÑ ±ÔÄ¢À» µû¸¨´Ï´Ù.
+//NPCë¥¼ ë‹¤ ì ìœ¼ì…¨ìœ¼ë©´ ë‚˜ëž˜ì´ì…˜ ëŒ€ì‚¬ë¥¼ ë‹¤ìŒê³¼ ê°™ì´ ìž…ë ¥í•´ì£¼ì„¸ìš”(Phaseê°€ ì‹œìž‘ë  ë•Œ ì¶œë ¥ë  ëŒ€ì‚¬ìž…ë‹ˆë‹¤)
+//ë‚˜ë ˆì´í„° ì´ë¦„ì€ í›„ìˆ í•  NPC ì´ë¦„ê³¼ ë™ì¼í•œ ê·œì¹™ì„ ë”°ë¦…ë‹ˆë‹¤.
 
 NarrStart
 
-Speaker [³ª·¹ÀÌÅÍ ÀÌ¸§]
-Script "[³ª·¡ÀÌ¼Ç1 \n ³ª·¡ÀÌ¼Ç1]"
+Speaker [ë‚˜ë ˆì´í„° ì´ë¦„]
+Script "[ë‚˜ëž˜ì´ì…˜1 \n ë‚˜ëž˜ì´ì…˜1]"
 
-Speaker [³ª·¹ÀÌÅÍ ÀÌ¸§]
-Script "[³ª·¡ÀÌ¼Ç2 \n ³ª·¡ÀÌ¼Ç2]"
+Speaker [ë‚˜ë ˆì´í„° ì´ë¦„]
+Script "[ë‚˜ëž˜ì´ì…˜2 \n ë‚˜ëž˜ì´ì…˜2]"
 
 NarrEnd
 
-//´ë»ç´Â ±âº»ÀûÀ¸·Î (Å¬¸¯ °¡´ÉÇÑ) NPCº° ½ºÅ©¸³Æ®·Î ±¸¼ºµË´Ï´Ù. ÀÌ¶§, Å¬¸¯ÇÏ´Â NPC¿Í È­ÀÚÀÇ NPC°¡ °°À» ÇÊ¿ä´Â ¾ø½À´Ï´Ù.(È­ÀÚ°¡ ¾ø¾îµµ µË´Ï´Ù)
+//ëŒ€ì‚¬ëŠ” ê¸°ë³¸ì ìœ¼ë¡œ (í´ë¦­ ê°€ëŠ¥í•œ) NPCë³„ ìŠ¤í¬ë¦½íŠ¸ë¡œ êµ¬ì„±ë©ë‹ˆë‹¤. ì´ë•Œ, í´ë¦­í•˜ëŠ” NPCì™€ í™”ìžì˜ NPCê°€ ê°™ì„ í•„ìš”ëŠ” ì—†ìŠµë‹ˆë‹¤.(í™”ìžê°€ ì—†ì–´ë„ ë©ë‹ˆë‹¤)
 
-//ÇÑ NPC¸¦ Å¬¸¯ÇÒ ¶§ ½ÇÇàÇÒ ÀÏ·ÃÀÇ ¸í·É¾î¸¦ ½ÃÀÛÇÏ´Â ¸í·É¾î ÀÔ´Ï´Ù.
-//ÇÑ Phase¿¡¼­ °°Àº NPC°¡ ¿©·¯¹ø ´ë»ç¸¦ È£ÃâÇØ¾ß ÇÒ ¶§, ¼ø¼­¸¦ ÅëÇØ ±¸ºÐÇÕ´Ï´Ù.
-//¼ø¼­´Â ¹Ýµå½Ã 1ºÎÅÍ ½ÃÀÛÇÏ´Â °øÂ÷°¡ 1ÀÎ µîÂ÷¼ö¿­À» ÀÌ·ç¾î¾ß ÇÕ´Ï´Ù. 
-//Script°¡ ÇÏ³ª »ÓÀÌ¶ó¼­ ¼ø¼­¸¦ °í·ÁÇÒ ÇÊ¿ä°¡ ¾ø´Â °æ¿ì´Â 1À» ÀÔ·ÂÇØÁÖ¼¼¿ä
+//í•œ NPCë¥¼ í´ë¦­í•  ë•Œ ì‹¤í–‰í•  ì¼ë ¨ì˜ ëª…ë ¹ì–´ë¥¼ ì‹œìž‘í•˜ëŠ” ëª…ë ¹ì–´ ìž…ë‹ˆë‹¤.
+//í•œ Phaseì—ì„œ ê°™ì€ NPCê°€ ì—¬ëŸ¬ë²ˆ ëŒ€ì‚¬ë¥¼ í˜¸ì¶œí•´ì•¼ í•  ë•Œ, ìˆœì„œë¥¼ í†µí•´ êµ¬ë¶„í•©ë‹ˆë‹¤.
+//ìˆœì„œëŠ” ë°˜ë“œì‹œ 1ë¶€í„° ì‹œìž‘í•˜ëŠ” ê³µì°¨ê°€ 1ì¸ ë“±ì°¨ìˆ˜ì—´ì„ ì´ë£¨ì–´ì•¼ í•©ë‹ˆë‹¤. 
+//Scriptê°€ í•˜ë‚˜ ë¿ì´ë¼ì„œ ìˆœì„œë¥¼ ê³ ë ¤í•  í•„ìš”ê°€ ì—†ëŠ” ê²½ìš°ëŠ” 1ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”
 
-ScriptList [NPC ¹øÈ£] [¼ø¼­] Start
+ScriptList [NPC ë²ˆí˜¸] [ìˆœì„œ] Start
 
-//¸»ÇÏ´Â NPCÀÇ ÀÌ¸§À» Á¤ÇÕ´Ï´Ù. Å°¿öµå·Î ±¸¼ºµÇ¸ç ´Ù¸¥ ÆÄÀÏ¿¡ Å°¿öµå¿Í ½ÇÁ¦ ÀÌ¸§ÀÇ ´ëÀÀÇ¥°¡ ÀÖ½À´Ï´Ù.
-//Ex: NULLÀÌ¶ó°í ÀÔ·ÂÇÏ¸é ¸»ÇÏ´Â »ç¶÷ÀÇ ÀÌ¸§Ã¢¿¡ ¾Æ¹«°Íµµ ¶ç¿ìÁö ¾Ê½À´Ï´Ù. 
+//ë§í•˜ëŠ” NPCì˜ ì´ë¦„ì„ ì •í•©ë‹ˆë‹¤. í‚¤ì›Œë“œë¡œ êµ¬ì„±ë˜ë©° ë‹¤ë¥¸ íŒŒì¼ì— í‚¤ì›Œë“œì™€ ì‹¤ì œ ì´ë¦„ì˜ ëŒ€ì‘í‘œê°€ ìžˆìŠµë‹ˆë‹¤.
+//Ex: NULLì´ë¼ê³  ìž…ë ¥í•˜ë©´ ë§í•˜ëŠ” ì‚¬ëžŒì˜ ì´ë¦„ì°½ì— ì•„ë¬´ê²ƒë„ ë„ìš°ì§€ ì•ŠìŠµë‹ˆë‹¤. 
 
-Speaker [³ª·¹ÀÌÅÍ ÀÌ¸§]
-Script "[´ë»ç]"
+Speaker [ë‚˜ë ˆì´í„° ì´ë¦„]
+Script "[ëŒ€ì‚¬]"
 
 ScriptList End
 
-//±âÅ¸ ¸í·É¾î ÀÔ´Ï´Ù. ÀüºÎ ´Ù ScriptList ¿µ¿ª ¾È¿¡¼­¸¸ »ç¿ë °¡´ÉÇÕ´Ï´Ù.
+//ê¸°íƒ€ ëª…ë ¹ì–´ ìž…ë‹ˆë‹¤. ì „ë¶€ ë‹¤ ScriptList ì˜ì—­ ì•ˆì—ì„œë§Œ ì‚¬ìš© ê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-Riddle [¼ö¼ö²²³¢ ¹øÈ£]
--> Á¤ÇØÁø ¹øÈ£ÀÇ ¼ö¼ö²²³¢¸¦ È£ÃâÇÕ´Ï´Ù
+Riddle [ìˆ˜ìˆ˜ê»˜ë¼ ë²ˆí˜¸]
+-> ì •í•´ì§„ ë²ˆí˜¸ì˜ ìˆ˜ìˆ˜ê»˜ë¼ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤
 
-RiddleSuccess [Phase ¹øÈ£]
--> Riddle Å°¿öµå°¡ ÀÖ´Â ÁÙ ¹Ù·Î ¹Ø¿¡¸¸ »ç¿ë °¡´ÉÇÕ´Ï´Ù.
--> Riddle Å°¿öµå·Î ºÎ¸¥ ¼ö¼ö²²³¢¸¦ Ç®¾úÀ» ¶§ ÀÌµ¿ÇÒ PhaseÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.
+RiddleSuccess [Phase ë²ˆí˜¸]
+-> Riddle í‚¤ì›Œë“œê°€ ìžˆëŠ” ì¤„ ë°”ë¡œ ë°‘ì—ë§Œ ì‚¬ìš© ê°€ëŠ¥í•©ë‹ˆë‹¤.
+-> Riddle í‚¤ì›Œë“œë¡œ ë¶€ë¥¸ ìˆ˜ìˆ˜ê»˜ë¼ë¥¼ í’€ì—ˆì„ ë•Œ ì´ë™í•  Phaseì˜ ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”.
 
-RiddleFail [Phase ¹øÈ£]
--> RiddleSuccess Å°¿öµå ¹Ù·Î ¹Ø¿¡¸¸ »ç¿ë °¡´ÉÇÕ´Ï´Ù.
--> Riddle Å°¿öµå·Î ºÎ¸¥ ¼ö¼ö²²³¢¸¦ Æ÷±âÇßÀ» ¶§ ÀÌµ¿ÇÒ PhaseÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.
+RiddleFail [Phase ë²ˆí˜¸]
+-> RiddleSuccess í‚¤ì›Œë“œ ë°”ë¡œ ë°‘ì—ë§Œ ì‚¬ìš© ê°€ëŠ¥í•©ë‹ˆë‹¤.
+-> Riddle í‚¤ì›Œë“œë¡œ ë¶€ë¥¸ ìˆ˜ìˆ˜ê»˜ë¼ë¥¼ í¬ê¸°í–ˆì„ ë•Œ ì´ë™í•  Phaseì˜ ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”.
 
-Script Rand "´ë»ç 1" "´ë»ç 2" "´ë»ç 3"
--> ¿©·¯ ´ë»ç Áß ÇÑ°¡Áö¸¦ ·£´ýÇÏ°Ô Ãâ·ÂÇÕ´Ï´Ù.
+Script Rand "ëŒ€ì‚¬ 1" "ëŒ€ì‚¬ 2" "ëŒ€ì‚¬ 3"
+-> ì—¬ëŸ¬ ëŒ€ì‚¬ ì¤‘ í•œê°€ì§€ë¥¼ ëžœë¤í•˜ê²Œ ì¶œë ¥í•©ë‹ˆë‹¤.
 
-PhaseShift [Phase ¹øÈ£]
--> Phase¸¦ ¹Ù²ß´Ï´Ù. 
+PhaseShift [Phase ë²ˆí˜¸]
+-> Phaseë¥¼ ë°”ê¿‰ë‹ˆë‹¤. 
 
-SceneShift [Scene ¹øÈ£]
--> SceneÀ» ¹Ù²ß´Ï´Ù. ÀÌ¶§, ¹Ù²Û SceneÀÇ Phase´Â 1·Î °íÁ¤µË´Ï´Ù.
+SceneShift [Scene ë²ˆí˜¸]
+-> Sceneì„ ë°”ê¿‰ë‹ˆë‹¤. ì´ë•Œ, ë°”ê¾¼ Sceneì˜ PhaseëŠ” 1ë¡œ ê³ ì •ë©ë‹ˆë‹¤.
 
-LeftSprite/MiddleSprite/RightSprite [Sprite ¹øÈ£]
--> ¸»ÇÒ ¶§ ´ëÈ­Ã¢ ¿ÞÂÊ/Áß¾Ó/¿À¸¥ÂÊ¿¡ ¹Ì¿¬½ÃÃ³·³ NPCÀÇ ±×¸²À» ¼¼¿ï ¶§, ¸î¹øÂ° Sprite¸¦ ²¨³» ¾µ°ÍÀÎÁö ¹Ù²ãÁÝ´Ï´Ù.
--> ¹øÈ£·Î 0º¸´Ù ÀÛ°Å³ª °°Àº ¼ö¸¦ ³ÖÀ¸¸é Sprite°¡ ¾ø´Â °ÍÀ» ³ªÅ¸³À´Ï´Ù.
+LeftSprite/MiddleSprite/RightSprite [Sprite ë²ˆí˜¸]
+-> ë§í•  ë•Œ ëŒ€í™”ì°½ ì™¼ìª½/ì¤‘ì•™/ì˜¤ë¥¸ìª½ì— ë¯¸ì—°ì‹œì²˜ëŸ¼ NPCì˜ ê·¸ë¦¼ì„ ì„¸ìš¸ ë•Œ, ëª‡ë²ˆì§¸ Spriteë¥¼ êº¼ë‚´ ì“¸ê²ƒì¸ì§€ ë°”ê¿”ì¤ë‹ˆë‹¤.
+-> ë²ˆí˜¸ë¡œ 0ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ìˆ˜ë¥¼ ë„£ìœ¼ë©´ Spriteê°€ ì—†ëŠ” ê²ƒì„ ë‚˜íƒ€ëƒ…ë‹ˆë‹¤.
 
 IsLeftSpriteBright/IsMiddleSpriteBright/IsRIghtSpriteBright [true/false]
--> ¿ÞÂÊ/Áß¾Ó/¿À¸¥ÂÊ¿¡ ¼¼¿î ±×¸²À» ¾îµÓ°Ô Ã³¸®ÇÒ °ÍÀÎÁö(¿ª°­Á¶), ¹à°Ô Ã³¸®ÇÒ °ÍÀÎÁö¸¦ Á¤ÇÕ´Ï´Ù.
+-> ì™¼ìª½/ì¤‘ì•™/ì˜¤ë¥¸ìª½ì— ì„¸ìš´ ê·¸ë¦¼ì„ ì–´ë‘¡ê²Œ ì²˜ë¦¬í•  ê²ƒì¸ì§€(ì—­ê°•ì¡°), ë°ê²Œ ì²˜ë¦¬í•  ê²ƒì¸ì§€ë¥¼ ì •í•©ë‹ˆë‹¤.

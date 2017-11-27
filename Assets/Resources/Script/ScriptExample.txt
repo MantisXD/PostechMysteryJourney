@@ -1,33 +1,33 @@
-P 0
+ï»¿P 0
 S 0
 
 NPCCount 2
 
-NPC 17 x=150 y=150 //17¹ø Sprite¸¦ ¾²´Â NPC¸¦ ¹èÄ¡ÇÏ°Ú½À´Ï´Ù.
+NPC 17 x=150 y=150 //17ë²ˆ Spriteë¥¼ ì“°ëŠ” NPCë¥¼ ë°°ì¹˜í•˜ê² ìŠµë‹ˆë‹¤.
 NPC 12 x=100 y=300
 
 NarrStart
 
 Speaker NULL
-Script "³ª·¹ÀÌ¼Ç Å×½ºÆ® ÅØ½ºÆ® ÀÔ´Ï´Ù"
+Script "ë‚˜ë ˆì´ì…˜ í…ŒìŠ¤íŠ¸ í…ìŠ¤íŠ¸ ì…ë‹ˆë‹¤"
 
 NarrEnd
 
 ScriptList 12 1 Start
 
 Speaker twelve
-LeftSprite 1 //´ë»çÃ¢ÀÇ ¿ŞÂÊ¿¡ 1¹øÂ° Sprite¸¦ ¼¼¿ó´Ï´Ù.
-IsLeftSpriteBright true //±×¸®°í ±×°É ¹à°Ô ÇÕ´Ï´Ù.
-Script "Ã¹¹øÂ° ´ë»çÀÔ´Ï´Ù."
+LeftSprite 1 //ëŒ€ì‚¬ì°½ì˜ ì™¼ìª½ì— 1ë²ˆì§¸ Spriteë¥¼ ì„¸ì›ë‹ˆë‹¤.
+IsLeftSpriteBright true //ê·¸ë¦¬ê³  ê·¸ê±¸ ë°ê²Œ í•©ë‹ˆë‹¤.
+Script "ì²«ë²ˆì§¸ ëŒ€ì‚¬ì…ë‹ˆë‹¤."
 
 Speaker seventeen
-RightSprite 2 //´ë»çÃ¢ÀÇ ¿À¸¥ÂÊ¿¡ 2¹øÂ° Sprite¸¦ ¼¼¿ó´Ï´Ù.
-IsLeftSpriteBright false //¿ŞÂÊ¿¡ ¼¼¿öµĞ°É ¾îµÓ°Ô ÇÕ´Ï´Ù.
-IsRightSpriteBright true //¿À¸¥ÂÊ¿¡ ¼¼¿öµĞ°É ¹à°Ô ÇÕ´Ï´Ù.
-Script "µÎ¹øÂ° ´ë»çÀÔ´Ï´Ù."
+RightSprite 2 //ëŒ€ì‚¬ì°½ì˜ ì˜¤ë¥¸ìª½ì— 2ë²ˆì§¸ Spriteë¥¼ ì„¸ì›ë‹ˆë‹¤.
+IsLeftSpriteBright false //ì™¼ìª½ì— ì„¸ì›Œë‘”ê±¸ ì–´ë‘¡ê²Œ í•©ë‹ˆë‹¤.
+IsRightSpriteBright true //ì˜¤ë¥¸ìª½ì— ì„¸ì›Œë‘”ê±¸ ë°ê²Œ í•©ë‹ˆë‹¤.
+Script "ë‘ë²ˆì§¸ ëŒ€ì‚¬ì…ë‹ˆë‹¤."
 
-Riddle 12 //12¹øÂ° ¼ö¼ö²²³¢¸¦ ³»º¸ÀÚ
-RiddleSuccess 2 //¼º°øÇßÀ¸¸é Phase 2·Î ³Ñ¾î°©´Ï´Ù.
-RiddleFail 3 //½ÇÆĞÇßÀ¸¸é Phase 3À¸·Î ³Ñ¾î°©´Ï´Ù.
+Riddle 12 //12ë²ˆì§¸ ìˆ˜ìˆ˜ê»˜ë¼ë¥¼ ë‚´ë³´ì
+RiddleSuccess 2 //ì„±ê³µí–ˆìœ¼ë©´ Phase 2ë¡œ ë„˜ì–´ê°‘ë‹ˆë‹¤.
+RiddleFail 3 //ì‹¤íŒ¨í–ˆìœ¼ë©´ Phase 3ìœ¼ë¡œ ë„˜ì–´ê°‘ë‹ˆë‹¤.
 
 ScriptList End
