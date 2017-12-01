@@ -52,6 +52,10 @@ public class ScriptHandler : MonoBehaviour
         //ScriptPrinter를 생성합니다.
         //대사를 넘겨줍니다.
     }
+    public List<String> Get_Script(int ID,int Sequence)
+    {
+        return ScriptDataBase[ID.ToString() + "_" + Sequence.ToString()];
+    }
 
     //Script를 로드합니다.
     void ScriptLoader()
@@ -217,5 +221,4 @@ public class ScriptHandler : MonoBehaviour
         }
     }
 
-    //script의 명령어에 따른 수행을 나타내는 함수입니다. NPCHandler는 이걸 상속받아 사용할 수 있습니다.
 }

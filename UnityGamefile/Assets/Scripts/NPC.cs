@@ -16,8 +16,8 @@ public class NPC : MonoBehaviour {
     Image NPCImage;
     //???
     string location;
-    //ScriptPrinter를 저장하는 Object입니다. UnityEditor에서 미리 할당받은채로 시작.
-    public GameObject ScriptPrinter;
+    //ScriptText를 저장하는 Object입니다. UnityEditor에서 미리 할당받은채로 시작.
+    public GameObject ScriptText;
     //GameManager를 저장하는 Object입니다. UnityEditor에서 미리 할당받은채로 시작.
     public GameObject GameManager;
 
