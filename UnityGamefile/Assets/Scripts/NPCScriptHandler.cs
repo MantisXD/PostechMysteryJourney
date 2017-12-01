@@ -10,15 +10,17 @@ public class NPCScriptHandler : ScriptHandler
     //Script를 출력하는 과정은 다음과 같습니다.
     //1. GameManager의 ScriptHandler에게 적절한 Script를 요청합니다.
     //2. 스크립트 오브젝트는 NPCScriptHandler에게 적절한 Script(String)을 리턴합니다.
-    //3. 리턴받은 Script(문자열)을 ScriptPrinter에게 전달합니다.
+    //3. 리턴받은 Script(문자열)을 ScriptPrinter에게 전달합니다
     //이거 만들어 주세요
 
     //모든 Script가 저장된 Handler를 가리킵니다.
     public ScriptHandler ScriptManager;
-    int NPC_ID;//NPC Script에서 받아옵니다.
+
+    int NPC_ID, ScriptSequence;
     // Use this for initialization
     void Start () {
-		
+
+        ScriptSequence = 1;
 	}
 	
 	// Update is called once per frame

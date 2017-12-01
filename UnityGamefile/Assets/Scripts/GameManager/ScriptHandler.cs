@@ -49,9 +49,8 @@ public class ScriptHandler : MonoBehaviour
     //나레이션 스크립트를 실행합니다.
     private void Narration()
     {
-        //순전히 명령어만 있습니다. 수행하세오
-        //Parsing이 안된 Narrator 스크립트를 Parsing합니다.
-        //Parsing한 Script를 바탕으로 명령을 실행합니다.
+        //ScriptPrinter를 생성합니다.
+        //대사를 넘겨줍니다.
     }
 
     //Script를 로드합니다.
@@ -130,7 +129,6 @@ public class ScriptHandler : MonoBehaviour
                     
                     //새로운 NPC를 만든다.
                     GMNPCHandler.CreateNPC(ID, x, y);
-
                     c++;
                 }
                 int temp;
@@ -166,7 +164,6 @@ public class ScriptHandler : MonoBehaviour
                 }
 
             }
-
             //ScriptList Start 키워드라면 Dictonary에 저장합니다.
             if((ScriptCache.Length >= 10 && ParsedScriptCache[0].Substring(0,10) == "ScriptList") && ParsedScriptCache[3] == "Start")
             {
