@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 92510406}
   - component: {fileID: 92510407}
+  - component: {fileID: 92510408}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -152,6 +153,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2efddae917a82954c8be2d01e48fbc55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &92510408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92510405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3e517e90140544c9779518bb8f5067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene: 0
+  Phase: 0
+  Loaded: 0
+  RawScript: []
+  GMNPCSpriteHandler: {fileID: 92510407}
 --- !u!1001 &228654047
 Prefab:
   m_ObjectHideFlags: 0
