@@ -8,7 +8,6 @@ public class ManagerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(this);//이 오브젝트는 씬 이동을 해도 파괴되지 않는다
 	}
 	
     public void NewGame()

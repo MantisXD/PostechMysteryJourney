@@ -3,13 +3,17 @@ S 1
 
 NPCCount 2
 //1번 Sprite를 쓰는 NPC를 배치하겠습니다.
-NPC 1 150 150
-NPC 2 100 300
+NPC 1 50 50
+NPC 2 100 100
 
 NarrStart
 
 Speaker NULL
-Script "나레이션 테스트 텍스트 입니다"
+Script "나레이션 테스트 1 입니다"
+Script "나레이션 테스트 2입니다."
+
+Speaker Zayin
+Script "로보토미 코퍼레이션 하고 싶어요"
 
 NarrEnd
 

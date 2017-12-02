@@ -24,22 +24,41 @@ public class NPCHandler : MonoBehaviour {
     public int NPCCount;
     //NPC의 Template입니다.
     public GameObject NPCTemplate;
+    
+    //Canvas의 너비와 높이
+    float width, height;
 
     private void Awake()
     { 
-        //박살내지 마시오(수수께끼 Scene에서 Main Scene으로 넘어올 때 자동으로 Script를 로드하게 하기 위해서 입니다.
+        //(수수께끼 Scene에서 Main Scene으로 넘어올 때 자동으로 Script를 로드하게 하기 위해서 입니다.
         DontDestroyOnLoad(this);
     }
     // Use this for initialization
     void Start () {
 
-
+        SetNPCSpriteCache();
         //생성한 Sprite 배열에 Sprite를 때려박습니다.
 
     }
 	//새로운 NPC를 형성합니다(ScriptHandler에서 호출합니다)
-    public void CreateNPC(int ID, int x, int y)
+    public void CreateNPC(int ID, int x, int y,GameObject Printer)
     {
+        GameObject Canvas = GameObject.Find("Canvas");
+        Rect CanvasRect = Canvas.GetComponent<RectTransform>().rect;
+        GameObject CreatedNPC = Instantiate(NPCTemplate) as GameObject;
+
+        width = CanvasRect.width;// * Canvas.GetComponent<RectTransform>().localScale.x;
+        height = CanvasRect.height;// * Canvas.GetComponent<RectTransform>().localScale.y;
+
+        //Sprite 설정 및 부모 설정
+        CreatedNPC.transform.SetParent(Canvas.transform);
+        CreatedNPC.GetComponent<NPC>().SetSprite(ID);
+
+        RectTransform NPCRect = CreatedNPC.GetComponent<RectTransform>();
+        NPCRect.anchorMax = new Vector2(0f, 1f);
+        NPCRect.anchorMin = new Vector2(0f, 1f);
+
+        NPCRect.anchoredPosition = new Vector2(width*x/100, height*y/100);
 
     }
 

@@ -16,13 +16,14 @@ public class NPCScriptHandler : ScriptHandler
 
     //모든 Script가 저장된 Handler를 가리킵니다.
     public ScriptHandler ScriptManager;
+    //ScriptHandler가 주는 Printer
+    GameObject Printer;
 
     List<String> TempScript;
     //NPC의 ID와 Sequence입니다. ScriptHandler에게 적절한 Script를 받아내기 위한 정보입니다.
     int NPC_ID, ScriptSequence;
     // Use this for initialization
     void Start () {
-
         ScriptSequence = 1;
 	}
 	
@@ -30,11 +31,17 @@ public class NPCScriptHandler : ScriptHandler
 	void Update () {
 		
 	}
-
+    public void Set_Printer(GameObject P)
+    {
+        Printer = P;
+    }
     public void ScriptFetcher()
     {
         TempScript = ScriptManager.Get_Script(NPC_ID, ScriptSequence);
         //새로운 ScriptPrinter를 생성
+        GameObject TempPrinter = Instantiate(Printer);
+        //대사를 넘겨줍니다.
+        TempPrinter.GetComponent<ScriptPrinter>().Get_Script(RawScript);
         //생성한 뒤 TempScript를 넘겨준다.
     }
     /*

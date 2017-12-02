@@ -16,14 +16,15 @@ public class NPC : MonoBehaviour {
     Image NPCImage;
     //???
     string location;
-    //ScriptText를 저장하는 Object입니다. UnityEditor에서 미리 할당받은채로 시작.
-    public GameObject ScriptText;
     //GameManager를 저장하는 Object입니다. UnityEditor에서 미리 할당받은채로 시작.
-    public GameObject GameManager;
+    GameObject GameManager;
 
-
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        GameManager = GameObject.Find("GameManager");
+    }
+    // Use this for initialization
+    void Start () {
 
         //더미 Sprite를 일단 할당
         SetSprite(0);
@@ -36,6 +37,7 @@ public class NPC : MonoBehaviour {
 
     public void SetSprite(int ID)
     {
+
         NPC_ID = ID;
         //받아서
         Sprite temp;
