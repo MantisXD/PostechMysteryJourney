@@ -18,16 +18,15 @@ public class NPC : MonoBehaviour {
     string location;
     //GameManager를 저장하는 Object입니다. UnityEditor에서 미리 할당받은채로 시작.
     GameObject GameManager;
-
+    public NPCScriptHandler ThisNPCScriptHandler;
     private void Awake()
     {
         GameManager = GameObject.Find("GameManager");
+        SetSprite(0);
     }
     // Use this for initialization
     void Start () {
 
-        //더미 Sprite를 일단 할당
-        SetSprite(0);
 	}
 	
 	// Update is called once per frame
@@ -40,6 +39,7 @@ public class NPC : MonoBehaviour {
 
         NPC_ID = ID;
         //받아서
+        ThisNPCScriptHandler.Set_ID(ID);
         Sprite temp;
         temp = GameManager.GetComponent<NPCHandler>().GetNPCSprite(NPC_ID);
         //할당해

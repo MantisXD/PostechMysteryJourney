@@ -43,9 +43,9 @@ public class NPCHandler : MonoBehaviour {
 	//새로운 NPC를 형성합니다(ScriptHandler에서 호출합니다)
     public void CreateNPC(int ID, int x, int y,GameObject Printer)
     {
-        GameObject Canvas = GameObject.Find("Canvas");
+        GameObject Canvas = GameObject.Find("NPCHolder");
         Rect CanvasRect = Canvas.GetComponent<RectTransform>().rect;
-        GameObject CreatedNPC = Instantiate(NPCTemplate) as GameObject;
+        GameObject CreatedNPC = Instantiate(NPCTemplate);
 
         width = CanvasRect.width;// * Canvas.GetComponent<RectTransform>().localScale.x;
         height = CanvasRect.height;// * Canvas.GetComponent<RectTransform>().localScale.y;

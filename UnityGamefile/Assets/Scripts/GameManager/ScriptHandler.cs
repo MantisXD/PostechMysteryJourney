@@ -77,6 +77,7 @@ public class ScriptHandler : MonoBehaviour
         string ScriptLocation = Application.dataPath + "/Resources/Script/" + ScriptTextName;//Script가 저장된 위치입니다.
         int c = 0, count;
         //이전 데이터를 말소시킵니다.
+
         ScriptDataBase.Clear();
         RawScript.Clear();
 

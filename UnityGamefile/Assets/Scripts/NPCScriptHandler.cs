@@ -44,6 +44,10 @@ public class NPCScriptHandler : ScriptHandler
         TempPrinter.GetComponent<ScriptPrinter>().Get_Script(RawScript);
         //생성한 뒤 TempScript를 넘겨준다.
     }
+    public void Set_ID(int ID)
+    {
+        NPC_ID = ID;
+    }
     /*
     //Script를 로드합니다.(ScriptHandler의 ScriptLoader를 Override합니다)
     void ScriptLoader()
