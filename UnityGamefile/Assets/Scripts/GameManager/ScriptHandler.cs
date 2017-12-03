@@ -19,7 +19,7 @@ public class ScriptHandler : MonoBehaviour
     public List<String> RawScript = new List<String>();
     public NPCHandler GMNPCHandler;
 
-    GameObject Printer;
+    protected GameObject Printer;
 
     string ScriptCache;
     //모든 Script를 분류 후 저장합니다.
@@ -46,20 +46,30 @@ public class ScriptHandler : MonoBehaviour
             ScriptLoader();
             //로드가 완료되었음을 나타냅니다.
             Loaded = true;
+            Debug.Log(ScriptDataBase["1_1"][0]);
+
             //나래이션을 호출합니다.
             Narration();
+
         }
+
+
+
     }
     //나레이션 스크립트를 실행합니다.
     private void Narration()
     {
         Printer.SetActive(true);
         //대사를 넘겨줍니다.
+
         Printer.GetComponent<ScriptPrinter>().Get_Script(RawScript);
+
     }
 
     public List<String> Get_Script(int ID,int Sequence)
     {
+        Debug.Log(ScriptDataBase["1_1"][0]);
+        Debug.Log(ID.ToString() + "_" + Sequence.ToString());
         return ScriptDataBase[ID.ToString() + "_" + Sequence.ToString()];
     }
 

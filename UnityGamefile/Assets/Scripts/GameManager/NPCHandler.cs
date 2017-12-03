@@ -53,12 +53,15 @@ public class NPCHandler : MonoBehaviour {
         //Sprite 설정 및 부모 설정
         CreatedNPC.transform.SetParent(Canvas.transform);
         CreatedNPC.GetComponent<NPC>().SetSprite(ID);
+        CreatedNPC.GetComponent<NPCScriptHandler>().Set_Printer(Printer);
 
         RectTransform NPCRect = CreatedNPC.GetComponent<RectTransform>();
         NPCRect.anchorMax = new Vector2(0f, 1f);
         NPCRect.anchorMin = new Vector2(0f, 1f);
 
         NPCRect.anchoredPosition = new Vector2(width*x/100, height*y/100);
+
+
 
     }
 

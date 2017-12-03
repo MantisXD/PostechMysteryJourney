@@ -14,12 +14,18 @@ public class ScriptPrinter : MonoBehaviour {
     bool ScriptGate, Loaded;
     //몇줄 남았는가?
     int pos = 0, count;
+    
     List<String> Script;
     //Script를 받고 한줄씩 실행하다가 대사 출력 키워드가 나오면 Click을 기다린다.
     //한프레임에 한줄이요
 
-	// Use this for initialization
-	void Start ()
+    private void Awake()
+    {
+        ScriptGate = false;
+    }
+
+    // Use this for initialization
+    void Start ()
     {
         /*
         float width, height;
@@ -45,7 +51,7 @@ public class ScriptPrinter : MonoBehaviour {
         Handler = GameObject.Find("GameManager").GetComponent<ScriptHandler>();
 
         //일단 Gate를 닫고, 파일이 로드되지 않았음을 나타낸다.
-        ScriptGate = false;
+     
 	}
 	
 	// Update is called once per frame
@@ -62,11 +68,21 @@ public class ScriptPrinter : MonoBehaviour {
             {
                 Set_Script(Script[pos]);
             }
+            if(TempScript[0] == "SetSpeakerPhase")
+            {
+                pos++;
+            }
+            
         }
-        if(pos >= count)
+        else if(pos >= count)
         {
             Set_Speaker("NULL");
             Set_Script("NULL");
+
+            pos = 0;
+            count = 1;
+            ScriptGate = false;
+
             //나를 죽여줘
             Handler.Deactivate_Printer();
         }

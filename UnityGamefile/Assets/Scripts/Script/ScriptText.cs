@@ -33,6 +33,8 @@ public class ScriptText : MonoBehaviour {
         ScriptTextText.text = text;
         //Text창의 Recttransform의 크기를 Text에 적절하게 바꿔준다.
         ScriptTextRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, ScriptTextText.preferredHeight);
+        ScriptTextRect.anchoredPosition = new Vector2(0, ScriptTextText.preferredHeight);
         //ScriptTextRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, ScriptTextText.preferredWidth);
+        ScriptTextScroll.value = 1f;
     }
 }

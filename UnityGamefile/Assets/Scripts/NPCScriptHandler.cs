@@ -16,13 +16,17 @@ public class NPCScriptHandler : ScriptHandler
 
     //모든 Script가 저장된 Handler를 가리킵니다.
     public ScriptHandler ScriptManager;
-    //ScriptHandler가 주는 Printer
-    GameObject Printer;
 
     List<String> TempScript;
     //NPC의 ID와 Sequence입니다. ScriptHandler에게 적절한 Script를 받아내기 위한 정보입니다.
     int NPC_ID, ScriptSequence;
     // Use this for initialization
+
+    private void Awake()
+    {
+        ScriptManager = GameObject.Find("GameManager").GetComponent<ScriptHandler>();
+    }
+
     void Start () {
         ScriptSequence = 1;
 	}
@@ -38,11 +42,18 @@ public class NPCScriptHandler : ScriptHandler
     public void ScriptFetcher()
     {
         TempScript = ScriptManager.Get_Script(NPC_ID, ScriptSequence);
-        //새로운 ScriptPrinter를 생성
-        GameObject TempPrinter = Instantiate(Printer);
+        //
+        Printer.SetActive(true);
         //대사를 넘겨줍니다.
-        TempPrinter.GetComponent<ScriptPrinter>().Get_Script(RawScript);
+        Printer.GetComponent<ScriptPrinter>().Get_Script(TempScript);
         //생성한 뒤 TempScript를 넘겨준다.
+
+        ScriptSequence++;
+        //만약에 Script의 맨 마지막에 Phase를 전환하라는 내용이 있었으면 Phase를 전환합ㄴ디ㅏ.
+        if (TempScript[TempScript.Count - 1].Length > 15 && TempScript[TempScript.Count-1].Substring(0,15) == "SetSpeakerPhase")
+        {
+           int.TryParse(TempScript[TempScript.Count - 1].Split()[1], out ScriptSequence);
+        }
     }
     public void Set_ID(int ID)
     {
