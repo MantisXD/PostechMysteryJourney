@@ -35,10 +35,12 @@ public class NPCScriptHandler : ScriptHandler
 	void Update () {
 		
 	}
+
     public void Set_Printer(GameObject P)
     {
         Printer = P;
     }
+
     public void ScriptFetcher()
     {
         TempScript = ScriptManager.Get_Script(NPC_ID, ScriptSequence);

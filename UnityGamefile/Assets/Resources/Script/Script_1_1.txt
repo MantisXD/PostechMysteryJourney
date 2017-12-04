@@ -1,10 +1,11 @@
-﻿P 1
-S 1
+﻿S 1
+P 1
+
 
 NPCCount 2
 //1번 Sprite를 쓰는 NPC를 배치하겠습니다.
 NPC 1 50 50
-NPC 2 81 50
+NPC 2 100 50
 
 NarrStart
 
