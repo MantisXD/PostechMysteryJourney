@@ -9,7 +9,7 @@ public class NPC : MonoBehaviour {
     //게임 데이터 오브젝트는 NPC의 정보가 저장된 Prefab을 미리 저장해둔 뒤, 지정된 데이터를 읽어서 적절한 NPC를 만들어서 배치합니다.
     //이때, NPC는 Canvas Object의 Child 가 되어야 합니다.
 
-
+    //피곤해요
     //NPC의 ID입니다.
     int NPC_ID;
     //NPC 오브젝트의 Image Component입니다. 저 컴포넌트의 image element에 Sprite를 할당하면 됩니다. (Sprite는 게임 데이터 오브젝트에서 불러오면 될거 같습니다)
