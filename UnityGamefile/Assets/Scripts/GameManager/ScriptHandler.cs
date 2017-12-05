@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 using System;
-
+using UnityEngine.UI;
 //Script를 불러오는 Script입니다.
 
 public class ScriptHandler : MonoBehaviour
@@ -18,6 +18,8 @@ public class ScriptHandler : MonoBehaviour
     //Parsing이 안된 RawScript를 저장합니다.(Narration만 저장합니다)
     public List<String> RawScript = new List<String>();
     public NPCHandler GMNPCHandler;
+    public Image BackGround;
+   
 
     protected GameObject Printer;
 
@@ -46,7 +48,6 @@ public class ScriptHandler : MonoBehaviour
             ScriptLoader();
             //로드가 완료되었음을 나타냅니다.
             Loaded = true;
-            Debug.Log(ScriptDataBase["1_1"][0]);
 
             //나래이션을 호출합니다.
             Narration();
@@ -68,8 +69,8 @@ public class ScriptHandler : MonoBehaviour
 
     public List<String> Get_Script(int ID,int Sequence)
     {
-        Debug.Log(ScriptDataBase["1_1"][0]);
-        Debug.Log(ID.ToString() + "_" + Sequence.ToString());
+        Debug.Log(ID);
+        Debug.Log(Sequence);
         return ScriptDataBase[ID.ToString() + "_" + Sequence.ToString()];
     }
 
@@ -81,6 +82,7 @@ public class ScriptHandler : MonoBehaviour
     //Script를 로드합니다.
     void ScriptLoader()
     {
+        Printer.SetActive(false);
         StreamReader Reader;
         //현재 씬/Phase에 맞는 Script 파일의 이름을 생성합니다.
         string ScriptTextName = "Script_" + Scene.ToString() + "_" + Phase.ToString() + ".txt";
@@ -144,6 +146,7 @@ public class ScriptHandler : MonoBehaviour
                     {
                         Debug.Log(e);
                     }
+
                     //나눈다.
                     ParsedScriptCache = ScriptCache.Split(new char[] { ' ' });
 
@@ -153,15 +156,12 @@ public class ScriptHandler : MonoBehaviour
                     
                     //새로운 NPC를 만든다.
                     GMNPCHandler.CreateNPC(ID, x, -y, Printer);
+
                     c++;
                 }
-                int temp;
-                int.TryParse(ParsedScriptCache[1], out temp);
-                //GMNPCHandler.SetNPCCount(temp);
-                continue;
             }
             //NarrStart 키워드라면 NarrEnd를 만날 때 까지 계속 Read합니다.
-            if(ScriptCache.Length >= 9 && ParsedScriptCache[0].Substring(0,9) == "NarrStart")
+            else if(ScriptCache.Length >= 9 && ParsedScriptCache[0].Substring(0,9) == "NarrStart")
             {
                 //나레이션을 저장할 Script를 깔끔히 비워줍니다.
                 RawScript.Clear();
@@ -189,7 +189,7 @@ public class ScriptHandler : MonoBehaviour
 
             }
             //ScriptList Start 키워드라면 Dictonary에 저장합니다.
-            if((ScriptCache.Length >= 10 && ParsedScriptCache[0].Substring(0,10) == "ScriptList") && ParsedScriptCache[3] == "Start")
+            else if((ScriptCache.Length >= 10 && ParsedScriptCache[0].Substring(0,10) == "ScriptList") && ParsedScriptCache[3] == "Start")
             {
                 //ScriptDB의 Key를 생성합니다.
                 string name = ParsedScriptCache[1] + "_" + ParsedScriptCache[2];
@@ -230,18 +230,30 @@ public class ScriptHandler : MonoBehaviour
     }
 
     //Scene이나 Phase를 바꿔줍니다. 주로 NPC가 호출합니다. Main화면에서 넘어올 때 호출되기도 합니다.
+    //변경을 원하지 않을 경우 -1을 인자로 넘겨주면 됩니다.
     public void Shifter(int S, int P)
     {
-        if (Scene != S)
+        if (Scene != S && S != -1)
         {
             Loaded = false;
             Scene = S;
+            //Scene이 바뀌었으므로 새로운 화면을 Load한다.
+            Texture2D temp = Resources.Load<Texture2D>("Background/Background_" + S.ToString());
+            BackGround.sprite = Sprite.Create(temp, new Rect(0.0f, 0.0f, temp.width, temp.height), new Vector2(0.5f, 0.5f));
+
+            Printer.SetActive(false);
+
         }
-        if (Phase != P)
+        if (Phase != P && P != -1)
         {
             Loaded = false;
             Phase = P;
+            Printer.SetActive(false);
+
         }
+        if(Loaded == false)
+            //기존에 있던 NPC를 모두 삭제합니다.
+            GMNPCHandler.RemoveAllNPC();
     }
 
 }

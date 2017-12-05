@@ -14,10 +14,10 @@ public class ScriptPrinter : MonoBehaviour {
     bool ScriptGate, Loaded;
     //몇줄 남았는가?
     int pos = 0, count;
-    
+
     List<String> Script;
-    //Script를 받고 한줄씩 실행하다가 대사 출력 키워드가 나오면 Click을 기다린다.
-    //한프레임에 한줄이요
+
+    public GameObject ScriptBack, SpeakerBack;
 
     private void Awake()
     {
@@ -27,22 +27,6 @@ public class ScriptPrinter : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        /*
-        float width, height;
-        GameObject CanvasTransform = GameObject.Find("Canvas");
-        //Canvas의 하위 Object가 되게 한다.
-        transform.SetParent(CanvasTransform.transform);
-        width = CanvasTransform.GetComponent<RectTransform>().rect.width;
-        height = CanvasTransform.GetComponent<RectTransform>().rect.height;
-        this.GetComponent<RectTransform>().pivot.Set(0.5f, 0.5f);
-        this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width*2);
-        this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height*2);
-        //this.GetComponent<RectTransform>().anchorMax.Set(0f, 0f);
-     //   this.GetComponent<RectTransform>().anchorMin.Set(width, height);
-       // this.GetComponent<RectTransform>().sizeDelta = new Vector2(100,100);
-       */
-
-
         //Script와 Speaker를 출력하기 위해 Object를 찾아서 메모리에 Load한다.
         ScriptText = GameObject.Find("ScriptText").GetComponent<ScriptText>();
         Speaker = GameObject.Find("SpeakerText").GetComponent<Text>();
@@ -56,25 +40,46 @@ public class ScriptPrinter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(ScriptGate && (Loaded && pos < count))
+        if (ScriptGate && (Loaded && pos < count))
         {
+
+            ScriptBack.SetActive(true);
+            SpeakerBack.SetActive(true);
             string[] TempScript = Script[pos].Split(' ');
 
-            if(TempScript[0] == "Speaker")
+            if (TempScript[0] == "Speaker")
             {
                 Set_Speaker(TempScript[1]);
             }
-            if(TempScript[0] == "Script")
+            if (TempScript[0] == "Script")
             {
                 Set_Script(Script[pos]);
             }
-            if(TempScript[0] == "SetSpeakerPhase")
+            if (TempScript[0] == "SetSpeakerPhase")
             {
                 pos++;
             }
-            
+            if (TempScript[0] == "SceneShift")
+            {
+                int temp;
+                int.TryParse(TempScript[1], out temp);
+                Handler.Shifter(temp, -1);
+            }
+            if (TempScript[0] == "PhaseShift")
+            {
+                int temp;
+                int.TryParse(TempScript[1], out temp);
+                Handler.Shifter(-1, temp);
+            }
+            if (TempScript[0] == "Shift")
+            {
+                int tempPhase, tempScene;
+                int.TryParse(TempScript[1], out tempScene);
+                int.TryParse(TempScript[2], out tempPhase);
+                Handler.Shifter(tempScene, tempPhase);
+            }
         }
-        else if(pos >= count)
+        else if (pos >= count)
         {
             Set_Speaker("NULL");
             Set_Script("NULL");
@@ -83,6 +88,8 @@ public class ScriptPrinter : MonoBehaviour {
             count = 1;
             ScriptGate = false;
 
+            ScriptBack.SetActive(false);
+            SpeakerBack.SetActive(false);
             //나를 죽여줘
             Handler.Deactivate_Printer();
         }

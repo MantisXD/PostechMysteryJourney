@@ -9,6 +9,8 @@ public class NPC : MonoBehaviour {
     //게임 데이터 오브젝트는 NPC의 정보가 저장된 Prefab을 미리 저장해둔 뒤, 지정된 데이터를 읽어서 적절한 NPC를 만들어서 배치합니다.
     //이때, NPC는 Canvas Object의 Child 가 되어야 합니다.
 
+    public float NPCSpriteDecraseRatio;
+
     //피곤해요
     //NPC의 ID입니다.
     int NPC_ID;
@@ -45,8 +47,8 @@ public class NPC : MonoBehaviour {
         //할당해
         this.GetComponent<Image>().sprite = temp;
         //그리고 크기를 원본의 1/4 크기(가로 절반, 세로 절반)로 할당합니다.
-        this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, temp.textureRect.height/2);
-        this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, temp.textureRect.width/2);
+        this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, temp.textureRect.width* NPCSpriteDecraseRatio);
+        this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, temp.textureRect.height* NPCSpriteDecraseRatio/2);
     }
 
 }

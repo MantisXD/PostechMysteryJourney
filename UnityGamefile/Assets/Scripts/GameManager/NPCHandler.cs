@@ -24,7 +24,10 @@ public class NPCHandler : MonoBehaviour {
     public int NPCCount;
     //NPC의 Template입니다.
     public GameObject NPCTemplate;
-    
+
+    //만들어진 NPC를 가리킵니다. Scene이나 Phase가 바뀌면 NPC를 싹 다 갈아엎기 위해서입니다.
+    List<GameObject> NPCList = new List<GameObject>();
+
     //Canvas의 너비와 높이
     float width, height;
 
@@ -39,6 +42,17 @@ public class NPCHandler : MonoBehaviour {
         SetNPCSpriteCache();
         //생성한 Sprite 배열에 Sprite를 때려박습니다.
 
+    }
+    public void RemoveAllNPC()
+    {
+        if (NPCList.Count != 0)
+        {
+            for (int i = 0; i < NPCList.Count; i++)
+            {
+                Destroy(NPCList[i]);
+            }
+            NPCList.Clear();
+        }
     }
 	//새로운 NPC를 형성합니다(ScriptHandler에서 호출합니다)
     public void CreateNPC(int ID, int x, int y,GameObject Printer)
@@ -61,6 +75,7 @@ public class NPCHandler : MonoBehaviour {
 
         NPCRect.anchoredPosition = new Vector2(width*x/100, height*y/100);
 
+        NPCList.Add(CreatedNPC);
 
 
     }
@@ -78,6 +93,8 @@ public class NPCHandler : MonoBehaviour {
         string NPCMaptext;//스탠딩 NPC 대응표를 임시저장할 String입니다.
         string NPCMaplocation = Application.dataPath + "/Resources/Images/StandingNPC/NPCmap.txt";//스탠딩 NPC대응표가 저장된 위치입니다.
         Texture2D temp;
+
+
 
         //Resources 폴더에 저장된 이미지를 임시로 Texture2D로 변환하고, Texture2D를 다시 Sprite로 변환합니다.
 

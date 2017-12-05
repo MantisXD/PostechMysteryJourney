@@ -42,6 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9708e819ccf97c642bcb761b990edbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPCSpriteDecraseRatio: 0.16666667
   ThisNPCScriptHandler: {fileID: 114730071772506266}
 --- !u!114 &114580664959135946
 MonoBehaviour:
@@ -139,6 +140,7 @@ MonoBehaviour:
   RawScript: []
   GMNPCHandler: {fileID: 114302599558601796, guid: f5338f764a6fa5749b7afb1b1ba54581,
     type: 2}
+  BackGround: {fileID: 0}
   ScriptManager: {fileID: 114348414281640638, guid: f5338f764a6fa5749b7afb1b1ba54581,
     type: 2}
 --- !u!222 &222433544815598286

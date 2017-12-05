@@ -77,6 +77,9 @@ PhaseShift [Phase 번호]
 SceneShift [Scene 번호]
 -> Scene을 바꿉니다. 이때, 바꾼 Scene의 Phase는 1로 고정됩니다.
 
+Shift [Scene 번호] [Phase 번호]
+-> 둘 다 바꿉니다.
+
 LeftSprite/MiddleSprite/RightSprite [Sprite 번호]
 -> 말할 때 대화창 왼쪽/중앙/오른쪽에 미연시처럼 NPC의 그림을 세울 때, 몇번째 Sprite를 꺼내 쓸것인지 바꿔줍니다.
 -> 번호로 0보다 작거나 같은 수를 넣으면 Sprite가 없는 것을 나타냅니다.
