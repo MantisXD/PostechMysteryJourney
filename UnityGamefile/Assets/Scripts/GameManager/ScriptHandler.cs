@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 //Script를 불러오는 Script입니다.
 
 public class ScriptHandler : MonoBehaviour
@@ -17,33 +18,53 @@ public class ScriptHandler : MonoBehaviour
 
     //Parsing이 안된 RawScript를 저장합니다.(Narration만 저장합니다)
     public List<String> RawScript = new List<String>();
-    public NPCHandler GMNPCHandler;
-    public Image BackGround;
-   
-
+    NPCHandler GMNPCHandler;
+    Image BackGround;
+  
     protected GameObject Printer;
 
     string ScriptCache;
     //모든 Script를 분류 후 저장합니다.
     //Key는 "(NPC ID)_(순서)"로 구성되며, Script[]는 그 Cluster의 모든 Script를 나타냅니다.
     Dictionary<string, List<String> > ScriptDataBase = new Dictionary<string, List<String> >();
+    GameObject ForeGround;
 
-
-    // Use this for initialization
-    void Start()
+    //씬을 넘어올때마다 호출됩니다. 다른 Object를 저장하는 변수를 가리키도록 합니다.
+    public void Linker(int S,int P)
     {
+        Scene = S;
+        Phase = P;
+        GMNPCHandler = GetComponent<NPCHandler>();
+        BackGround = GameObject.Find("Background").GetComponent<Image>();
         //Printer를 찾습니다.
         Printer = GameObject.Find("ScriptPrinter");
         Printer.SetActive(false);
-        //임시로 첫번째 Scene의 Phase 1을 호출합니다.
-        //나중에는 저장된 Data에서 Load 가능하게 바꿀 예정입니다.
-        Shifter(1, 1);
+        ForeGround = GameObject.Find("Foreground");
+        Loaded = false;
+    }
+
+    void Awake()
+    {
+
+    }
+    // Use this for initialization
+    void Start()
+    {
+        Loaded = true;
+        ForeGround = GameObject.Find("Foreground");
+        if(SceneManager.GetActiveScene().name == "Title")
+        {
+            ForeGround.GetComponent<FadeIO>().ShutDown();
+        }
     }
     // Update is called once per frame
     void Update()
     {
         if (!Loaded)
         {
+            //Scene이 바뀌었으므로 새로운 화면을 Load한다.
+            Texture2D temp = Resources.Load<Texture2D>("Background/Background_" + Scene.ToString());
+            BackGround.sprite = Sprite.Create(temp, new Rect(0.0f, 0.0f, temp.width, temp.height), new Vector2(0.5f, 0.5f));
             //Load가 안되어 있거나 갱신이 필요하면 얘를 호출한다.
             ScriptLoader();
             //로드가 완료되었음을 나타냅니다.
@@ -53,9 +74,6 @@ public class ScriptHandler : MonoBehaviour
             Narration();
 
         }
-
-
-
     }
     //나레이션 스크립트를 실행합니다.
     private void Narration()
@@ -233,27 +251,52 @@ public class ScriptHandler : MonoBehaviour
     //변경을 원하지 않을 경우 -1을 인자로 넘겨주면 됩니다.
     public void Shifter(int S, int P)
     {
-        if (Scene != S && S != -1)
+        //변환이 이루어졌는가?
+        bool Shifted = false;
+        if (Scene == Phase && Scene == -1)
         {
-            Loaded = false;
             Scene = S;
-            //Scene이 바뀌었으므로 새로운 화면을 Load한다.
-            Texture2D temp = Resources.Load<Texture2D>("Background/Background_" + S.ToString());
-            BackGround.sprite = Sprite.Create(temp, new Rect(0.0f, 0.0f, temp.width, temp.height), new Vector2(0.5f, 0.5f));
-
-            Printer.SetActive(false);
-
-        }
-        if (Phase != P && P != -1)
-        {
-            Loaded = false;
             Phase = P;
-            Printer.SetActive(false);
 
-        }
-        if(Loaded == false)
+            //Foreground를 활성화시켜줍니다.
+            ForeGround.SetActive(true);
+
+            ForeGround.GetComponent<FadeIO>().FadeIn();
             //기존에 있던 NPC를 모두 삭제합니다.
             GMNPCHandler.RemoveAllNPC();
+            //1초 후 Load를 False로 설정합니다(겸사겸사 Foreground를 비활성화 시킵니다).
+            Loaded = false;
+        }
+        else
+        {
+
+            if (Scene != S && S != -1)
+            {
+                Scene = S;
+
+                Shifted = true;
+            }
+            if (Phase != P && P != -1)
+            {
+                Phase = P;
+                Shifted = true;
+            }
+            if (Shifted)
+            {
+                //Foreground를 활성화시켜줍니다.
+                ForeGround.SetActive(true);
+                //화면전환 효과를 시작합니다.
+                ForeGround.GetComponent<FadeIO>().Transistion();
+                Invoke("SetUnload", 1f);
+                Printer.SetActive(false);
+                //기존에 있던 NPC를 모두 삭제합니다.
+                GMNPCHandler.RemoveAllNPC();
+            }
+        }
+    }
+    void SetUnload()
+    {
+        Loaded = false;
     }
 
 }

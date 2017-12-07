@@ -226,11 +226,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Test1.cs" />
+    <Compile Include="Assets\Scripts\GameManager\FadeIO.cs" />
+    <Compile Include="Assets\Scripts\GameManager\GameManagerLinker.cs" />
     <Compile Include="Assets\Scripts\GameManager\NPCHandler.cs" />
     <Compile Include="Assets\Scripts\GameManager\ScriptHandler.cs" />
     <Compile Include="Assets\Scripts\ManagerScript.cs" />
     <Compile Include="Assets\Scripts\NPC.cs" />
     <Compile Include="Assets\Scripts\NPCScriptHandler.cs" />
+    <Compile Include="Assets\Scripts\Script\SceneMove.cs" />
     <Compile Include="Assets\Scripts\Script\ScriptPrinter.cs" />
     <Compile Include="Assets\Scripts\Script\ScriptText.cs" />
     <Compile Include="Assets\Scripts\ScriptTextScroll.cs" />
@@ -238,8 +241,6 @@
   <ItemGroup>
     <None Include="Assets\Resources\Background\BGreadme.txt" />
     <None Include="Assets\Resources\Images\FieldNPC\NPCCount.txt" />
-    <None Include="Assets\Resources\Images\StandingNPC\NPCmap.txt" />
-    <None Include="Assets\Resources\Images\StandingNPC\NPCmap_Readme.txt" />
     <None Include="Assets\Resources\Script\ScriptExample.txt" />
     <None Include="Assets\Resources\Script\ScriptReadme.txt" />
     <None Include="Assets\Resources\Script\Script_1_1.txt" />

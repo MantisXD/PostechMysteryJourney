@@ -60,16 +60,13 @@ ScriptList End
 Riddle [수수께끼 번호]
 -> 정해진 번호의 수수께끼를 호출합니다
 
-RiddleSuccess [Phase 번호]
--> Riddle 키워드가 있는 줄 바로 밑에만 사용 가능합니다.
--> Riddle 키워드로 부른 수수께끼를 풀었을 때 이동할 Phase의 번호를 입력해주세요.
+RiddleSuccess [수수께끼 번호] Start
+-> ScriptList Start와 End 사이에서만 사용 가능합니다.
+-> [수수께끼 번호]를 성공했을 때 실행되며, RiddleSuccess End가 나올때 까지 Script를 실행합니다.
 
-RiddleFail [Phase 번호]
--> RiddleSuccess 키워드 바로 밑에만 사용 가능합니다.
--> Riddle 키워드로 부른 수수께끼를 포기했을 때 이동할 Phase의 번호를 입력해주세요.
-
-Script Rand "대사 1" "대사 2" "대사 3"
--> 여러 대사 중 한가지를 랜덤하게 출력합니다.
+RiddleFail [수수께끼 번호] Start
+-> ScriptList Start와 End 사이에서만 사용 가능합니다.
+-> [수수께끼 번호]를 실패했을 때 실행되며, RiddleSuccess End가 나올때 까지 Script를 실행합니다.
 
 PhaseShift [Phase 번호]
 -> Phase를 바꿉니다. 
@@ -80,9 +77,9 @@ SceneShift [Scene 번호]
 Shift [Scene 번호] [Phase 번호]
 -> 둘 다 바꿉니다.
 
-LeftSprite/MiddleSprite/RightSprite [Sprite 번호]
+Sprite [Left/Middle/Right] [Sprite 번호]
 -> 말할 때 대화창 왼쪽/중앙/오른쪽에 미연시처럼 NPC의 그림을 세울 때, 몇번째 Sprite를 꺼내 쓸것인지 바꿔줍니다.
 -> 번호로 0보다 작거나 같은 수를 넣으면 Sprite가 없는 것을 나타냅니다.
 
-IsLeftSpriteBright/IsMiddleSpriteBright/IsRIghtSpriteBright [true/false]
+IsSpriteBright [Left/Middle/Right] [true/false]
 -> 왼쪽/중앙/오른쪽에 세운 그림을 어둡게 처리할 것인지(역강조), 밝게 처리할 것인지를 정합니다.

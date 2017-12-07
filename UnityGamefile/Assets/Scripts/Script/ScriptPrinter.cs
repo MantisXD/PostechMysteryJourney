@@ -18,6 +18,8 @@ public class ScriptPrinter : MonoBehaviour {
     List<String> Script;
 
     public GameObject ScriptBack, SpeakerBack;
+    public NPCHandler NPCSpriteHandler;
+    public GameObject LeftStand, MiddleStand, RightStand;
 
     private void Awake()
     {
@@ -77,6 +79,55 @@ public class ScriptPrinter : MonoBehaviour {
                 int.TryParse(TempScript[1], out tempScene);
                 int.TryParse(TempScript[2], out tempPhase);
                 Handler.Shifter(tempScene, tempPhase);
+            }
+            if(TempScript[0] == "Sprite")
+            {
+                pos++;
+                if(TempScript[1] == "Left")
+                {
+                    if (TempScript[2] == "NULL")
+                    {
+                        LeftStand.GetComponent<Image>().sprite = null;
+                        LeftStand.SetActive(false);
+                    }
+                    else
+                    {
+                        Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                        LeftStand.SetActive(true);
+                        LeftStand.GetComponent<Image>().sprite = tempS;
+                        LeftStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                    }
+                }
+                if(TempScript[1] == "Middle")
+                {
+                    if (TempScript[2] == "NULL")
+                    {
+                        MiddleStand.GetComponent<Image>().sprite = null;
+                        MiddleStand.SetActive(false);
+                    }
+                    else
+                    {
+                        Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                        MiddleStand.SetActive(true);
+                        MiddleStand.GetComponent<Image>().sprite = tempS;
+                        MiddleStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                    }
+                }
+                if(TempScript[1] == "Right")
+                {
+                    if (TempScript[2] == "NULL")
+                    {
+                        RightStand.GetComponent<Image>().sprite = null;
+                        RightStand.SetActive(false);
+                    }
+                    else
+                    {
+                        Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                        RightStand.SetActive(true);
+                        RightStand.GetComponent<Image>().sprite = tempS;
+                        RightStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                    }
+                }
             }
         }
         else if (pos >= count)

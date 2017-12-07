@@ -11,8 +11,10 @@ NarrStart
 
 Speaker NULL
 Script "아....아침 8시부터 수업이 말이 되냐고 스벌..."
+Sprite Right 2
 Speaker 깝쭉이
 Script "저런~"
+Sprite Right NULL
 Speaker NULL
 Script "그런 식으로 말하니까 더 가기 싫어진다"
 

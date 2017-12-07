@@ -43,7 +43,7 @@ public class NPC : MonoBehaviour {
         //받아서
         ThisNPCScriptHandler.Set_ID(ID);
         Sprite temp;
-        temp = GameManager.GetComponent<NPCHandler>().GetNPCSprite(NPC_ID);
+        temp = GameManager.GetComponent<NPCHandler>().GetFieldNPCSprite(NPC_ID);
         //할당해
         this.GetComponent<Image>().sprite = temp;
         //그리고 크기를 원본의 1/4 크기(가로 절반, 세로 절반)로 할당합니다.

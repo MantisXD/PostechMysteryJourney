@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4323881239897222}
   - component: {fileID: 114302599558601796}
   - component: {fileID: 114348414281640638}
+  - component: {fileID: 114244457798392372}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114244457798392372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437617646607132}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0c2618765ecad4e8c37a6b4ac97948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114302599558601796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,8 +64,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2efddae917a82954c8be2d01e48fbc55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCCount: 3
-  NPCTemplate: {fileID: 0}
+  FieldNPCCount: 6
+  StandingNPCCount: 3
+  NPCTemplate: {fileID: 1421462202461766, guid: 60ed8216cecc0bf4aa28d3bcdabc3a5b,
+    type: 2}
 --- !u!114 &114348414281640638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,9 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3e517e90140544c9779518bb8f5067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scene: 0
-  Phase: 0
+  Scene: -1
+  Phase: -1
   Loaded: 0
   RawScript: []
-  GMNPCHandler: {fileID: 114302599558601796}
-  Printer: {fileID: 1194684537193470, guid: 9fec518f7c393844eb89361630f686df, type: 2}
