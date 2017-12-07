@@ -18,7 +18,7 @@ public class ScriptPrinter : MonoBehaviour {
     List<String> Script;
 
     public GameObject ScriptBack, SpeakerBack;
-    public NPCHandler NPCSpriteHandler;
+    NPCHandler NPCSpriteHandler;
     public GameObject LeftStand, MiddleStand, RightStand;
 
     private void Awake()
@@ -29,10 +29,12 @@ public class ScriptPrinter : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        
         //Script와 Speaker를 출력하기 위해 Object를 찾아서 메모리에 Load한다.
         ScriptText = GameObject.Find("ScriptText").GetComponent<ScriptText>();
         Speaker = GameObject.Find("SpeakerText").GetComponent<Text>();
-
+        //NPCSpriteHandler도 찾는다
+        NPCSpriteHandler = GameObject.Find("GameManager").GetComponent<NPCHandler>();
         //자기 자신을 비활성화 시키는 함수를 호출하기 위해 Handler를 Load한다ㅏ.
         Handler = GameObject.Find("GameManager").GetComponent<ScriptHandler>();
 

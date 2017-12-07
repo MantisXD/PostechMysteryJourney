@@ -22,7 +22,6 @@ public class ScriptHandler : MonoBehaviour
     Image BackGround;
   
     protected GameObject Printer;
-
     string ScriptCache;
     //모든 Script를 분류 후 저장합니다.
     //Key는 "(NPC ID)_(순서)"로 구성되며, Script[]는 그 Cluster의 모든 Script를 나타냅니다.
@@ -54,6 +53,7 @@ public class ScriptHandler : MonoBehaviour
         ForeGround = GameObject.Find("Foreground");
         if(SceneManager.GetActiveScene().name == "Title")
         {
+            ForeGround.GetComponent<FadeIO>().FadeIn();
             ForeGround.GetComponent<FadeIO>().ShutDown();
         }
     }
@@ -62,6 +62,10 @@ public class ScriptHandler : MonoBehaviour
     {
         if (!Loaded)
         {
+
+            //Foreground를 활성화시켜줍니다.
+            ForeGround.SetActive(true);
+
             //Scene이 바뀌었으므로 새로운 화면을 Load한다.
             Texture2D temp = Resources.Load<Texture2D>("Background/Background_" + Scene.ToString());
             BackGround.sprite = Sprite.Create(temp, new Rect(0.0f, 0.0f, temp.width, temp.height), new Vector2(0.5f, 0.5f));
@@ -69,6 +73,10 @@ public class ScriptHandler : MonoBehaviour
             ScriptLoader();
             //로드가 완료되었음을 나타냅니다.
             Loaded = true;
+
+            ForeGround.GetComponent<FadeIO>().Invoke("FadeIn",0.5f);
+            ForeGround.GetComponent<FadeIO>().ShutDown();
+
 
             //나래이션을 호출합니다.
             Narration();
@@ -261,7 +269,7 @@ public class ScriptHandler : MonoBehaviour
             //Foreground를 활성화시켜줍니다.
             ForeGround.SetActive(true);
 
-            ForeGround.GetComponent<FadeIO>().FadeIn();
+            ForeGround.GetComponent<FadeIO>().FadeOut();
             //기존에 있던 NPC를 모두 삭제합니다.
             GMNPCHandler.RemoveAllNPC();
             //1초 후 Load를 False로 설정합니다(겸사겸사 Foreground를 비활성화 시킵니다).
@@ -285,8 +293,9 @@ public class ScriptHandler : MonoBehaviour
             {
                 //Foreground를 활성화시켜줍니다.
                 ForeGround.SetActive(true);
-                //화면전환 효과를 시작합니다.
-                ForeGround.GetComponent<FadeIO>().Transistion();
+
+                ForeGround.GetComponent<FadeIO>().FadeOut();
+
                 Invoke("SetUnload", 1f);
                 Printer.SetActive(false);
                 //기존에 있던 NPC를 모두 삭제합니다.

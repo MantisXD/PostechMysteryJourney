@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FadeIO : MonoBehaviour {
 
-    Animator ScreenTransition;
-
-	// Use this for initialization
-	void Start () {
+    Image BlackScreen;
+    // Use this for initialization
+    private void Awake()
+    {
         Linker();
+    }
+    void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -16,28 +20,50 @@ public class FadeIO : MonoBehaviour {
 		
 	}
 
+    public void FadeIn()
+    {
+        StartCoroutine("In");
+    }
+    public void FadeOut()
+    {
+        StartCoroutine("Out");
+    }
+
     public void Transistion()
     {
         //호출되면 Fadeout을 호출하고 뒤이어 Fadein도 호출한다.
         //Fadeout 애니메이션이 끝나면 바로 Fadein으로 넘어간다.
-        FadeOut();
-        Invoke("FadeIn", 0.8f);
+        StartCoroutine("Out");
+        Invoke("In", 0.8f);
     }
 
-    public void FadeOut()
+    //매 프레임마다 호출되며, yield return 문을 만나면 모든 진행상황을 유지한 채 다음 프레임에서 호출됩니다(yield return문에서 시작합니다)
+    IEnumerator In()
     {
-        ScreenTransition.SetBool("FadeOut", true);
-        ScreenTransition.SetBool("FadeIn", false);
+        for(float f = 1.1f; f >= 0; f -= 0.05f)
+        {
+            Color c = BlackScreen.color;
+            c.a = f;
+            BlackScreen.color = c;
+            yield return null;
+        }
     }
-    public void FadeIn()
+
+     IEnumerator Out()
     {
-        ScreenTransition.SetBool("FadeOut", false);
-        ScreenTransition.SetBool("FadeIn", true);
-        ShutDown();   
+        for (float f = 0f; f <= 1.1f; f += 0.05f)
+        {
+            Color c = BlackScreen.color;
+            Debug.Log(c.a);
+            c.a = f;
+            BlackScreen.color = c;
+            yield return null;
+        }
     }
+
     public void ShutDown()
     {
-        Invoke("TurnOff", 1.2f);
+        Invoke("TurnOff", 1f);
     }
     private void TurnOff()
     {
@@ -47,6 +73,7 @@ public class FadeIO : MonoBehaviour {
     public void Linker()
     {
         //Foreground의 Animator Component를 가져온다
-        ScreenTransition = GameObject.Find("Foreground").GetComponent<Animator>();
+        BlackScreen = GameObject.Find("Foreground").GetComponent<Image>();
+
     }
 }

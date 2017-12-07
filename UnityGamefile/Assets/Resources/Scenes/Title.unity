@@ -313,7 +313,6 @@ GameObject:
   - component: {fileID: 594055472}
   - component: {fileID: 594055476}
   - component: {fileID: 594055475}
-  - component: {fileID: 594055474}
   - component: {fileID: 594055473}
   m_Layer: 5
   m_Name: Foreground
@@ -351,23 +350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0c2618765ecad4e8c37a6b4ac97948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &594055474
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 594055471}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: da735cbfd4c7ba349bece179e59d864d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &594055475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
