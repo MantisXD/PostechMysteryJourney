@@ -9,12 +9,16 @@ public class LoadButton : MonoBehaviour {
 
     //게임매니저
     GameObject GameManager;
-
     String[] LoadedFile;
     int[] Data = new int[5];
+    //수수께끼 정보
+    List<String> RiddleInfo = new List<String>();
+
+    bool NewGame;
 	// Use this for initialization
 	void Start () {
         GameManager = GameObject.Find("GameManager");
+        NewGame = GameManager.GetComponent<SaveLoadHandler>().IsNewGame();
     }
 	
 	// Update is called once per frame
@@ -42,8 +46,16 @@ public class LoadButton : MonoBehaviour {
         //수수께끼를 로드합니다.
         GameManager.GetComponent<RiddleHandler>().RiddleDataLoad(Temp[1], Data[3], Data[4]);
         //데이터 세팅 끝내고
-        //씬 전환
-        GameManager.GetComponent<SceneMove>().SceneShift(Data[1],Data[2]);
+
+        if (NewGame)
+        {
+            //새로운 게임을 시작하는거면 별도의 함수를 호출
+        }
+        else
+        {
+            //기존 파일 Load하는거면 걍 씬 전환
+            GameManager.GetComponent<SceneMove>().SceneShift(Data[1], Data[2]);
+        }
     }
 
 }

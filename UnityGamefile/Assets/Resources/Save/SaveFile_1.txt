@@ -3,4 +3,7 @@ S 1
 P 1
 Score 150
 Coin 120
-Riddle FFFFFFFFFTTTTTFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+Riddle 3
+1 false 35 0
+2 false 50 0
+3 true 0 0

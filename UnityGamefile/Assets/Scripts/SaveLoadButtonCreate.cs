@@ -28,7 +28,7 @@ public class SaveLoadButtonCreate : MonoBehaviour {
 		
 	}
 
-    public void CreateLoadButton()
+    public void CreateLoadButton(bool NewGame)
     {
         //리소스 폴더 내 세이브 파일들의 위치입니다. Savefile_X.txt입니다.
         String path = "Save/SaveFile_";
@@ -41,7 +41,6 @@ public class SaveLoadButtonCreate : MonoBehaviour {
             GameObject TempLoad = Instantiate(LoadButton_Prefab);
             // -> 상속관계 형성하고 
             TempLoad.transform.SetParent(Cast.transform);
-
             RectTransform TempRect = TempLoad.GetComponent<RectTransform>();
             //-> 위치를 지정한다.
             TempRect.anchoredPosition = new Vector2(0, (-1) * ButtonHeight * c);
