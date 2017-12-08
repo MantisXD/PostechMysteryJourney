@@ -441,7 +441,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 685234299}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 366.80005, y: -224.84471, z: 0}
+  m_LocalPosition: {x: 366.80005, y: -225.19441, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1841558384}
@@ -567,8 +567,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 715095571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 322, y: 181, z: 0}
-  m_LocalScale: {x: 0.805, y: 0.805, z: 0.805}
+  m_LocalPosition: {x: 321.5, y: 181, z: 0}
+  m_LocalScale: {x: 0.80375, y: 0.80375, z: 0.80375}
   m_Children:
   - {fileID: 655944120}
   - {fileID: 1586045092}
@@ -686,7 +686,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 989300800}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -374, y: -224.84471, z: 0}
+  m_LocalPosition: {x: -374, y: -225.19441, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1841558384}
@@ -759,7 +759,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1001071370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5999756, y: -132.44472, z: 0}
+  m_LocalPosition: {x: -3.5999756, y: -132.79442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1455998877}
@@ -1031,7 +1031,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1381754923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -224.84471, z: 0}
+  m_LocalPosition: {x: 0, y: -225.19441, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1841558384}
@@ -1365,7 +1365,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScriptBack: {fileID: 1361321655}
   SpeakerBack: {fileID: 1001071370}
-  NPCSpriteHandler: {fileID: 0}
   LeftStand: {fileID: 989300800}
   MiddleStand: {fileID: 1381754923}
   RightStand: {fileID: 685234299}

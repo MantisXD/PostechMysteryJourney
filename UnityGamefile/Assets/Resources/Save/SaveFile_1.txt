@@ -1,9 +1,9 @@
-﻿Name "철수"
-S 1
+﻿Name NULL
 P 1
-Score 150
-Coin 120
+S 1
+Score 0
+Coin 0
 Riddle 3
-1 false 35 0
-2 false 50 0
-3 true 0 0
+1 false 10 10 0
+2 false 20 20 0
+3 false 30 30 0

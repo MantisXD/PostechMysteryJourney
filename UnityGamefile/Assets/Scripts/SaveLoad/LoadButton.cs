@@ -7,12 +7,13 @@ using System;
 
 public class LoadButton : MonoBehaviour {
 
+    int Number;
     //게임매니저
     GameObject GameManager;
-    String[] LoadedFile;
-    int[] Data = new int[5];
+    int Phase, Scene, Coin, Score;
+    string Name;
     //수수께끼 정보
-    List<String> RiddleInfo = new List<String>();
+    List<RiddleClass> RiddleCache = new List<RiddleClass>();
 
     bool NewGame;
 	// Use this for initialization
@@ -25,36 +26,61 @@ public class LoadButton : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void GetLoadData(String data)
+    //데이터를 받아옵니다.
+    public void GetLoadData(int Phase_data,int Scene_data,int Coin_data,int Score_data,string Name_data,List<RiddleClass> Riddle,int Num)
     {
-        LoadedFile = data.Split('\n');
+        Number = Num;
+        Phase = Phase_data;
+        Scene = Scene_data;
+        Coin = Coin_data;
+        Score = Score_data;
+        Name = Name_data;
+
+        for(int i=0;i<Riddle.Count;i++)
+        {
+            RiddleCache.Add(Riddle[i]);
+        }
+
+        
     }
 
+    //호출되면 다짜고짜 로드를 시작합니다.
     public void Load()
     {
-        //이름을 세팅ㅎ나다.
-        String[] Temp;
-        Temp = LoadedFile[0].Split(' ');
-        GameManager.GetComponent<ScriptHandler>().SetName(Temp[1]);
-        //데이터를 로드합니다.
-        for(int k=1;k<=4;k++)
-        {
-            Temp = LoadedFile[k].Split(' ');
-            Data[k] = int.Parse(Temp[1]);
-        }
-        Temp = LoadedFile[5].Split(' ');
-        //수수께끼를 로드합니다.
-        GameManager.GetComponent<RiddleHandler>().RiddleDataLoad(Temp[1], Data[3], Data[4]);
-        //데이터 세팅 끝내고
 
         if (NewGame)
         {
+            String path = Application.dataPath + "/Resources/Save/SaveFile_" + Number.ToString() + ".txt";
+            StreamWriter Writer = new StreamWriter(path,false,Encoding.UTF8);
+            Name = null;
+            Writer.WriteLine("Name NULL");
+            Phase = 1;
+            Writer.WriteLine("P 1");
+            Scene = 1;
+            Writer.WriteLine("S 1");
+            Score = 0;
+            Writer.WriteLine("Score 0");
+            Coin = 0;
+            Writer.WriteLine("Coin 0");
+            Writer.WriteLine("Riddle " + (RiddleCache.Count-1).ToString());
+
+            //기존의 데이터를 전부 다 지웁니다.
+            for (int i=1;i<RiddleCache.Count;i++)
+            {
+                RiddleCache[i].LeftScore = RiddleCache[i].InitScore;
+                RiddleCache[i].IsSolved = false;
+                RiddleCache[i].Hint = 0;
+                Writer.WriteLine(i.ToString() + " false " + RiddleCache[i].InitScore.ToString() + " " + RiddleCache[i].InitScore.ToString() + " 0");
+            }
+            Writer.Close();
             //새로운 게임을 시작하는거면 별도의 함수를 호출
         }
         else
         {
-            //기존 파일 Load하는거면 걍 씬 전환
-            GameManager.GetComponent<SceneMove>().SceneShift(Data[1], Data[2]);
+            //수수께끼를 로드합니다.
+            GameManager.GetComponent<RiddleHandler>().RiddleDataLoad(RiddleCache, Scene, Coin);
+            //씬을 전환합니다.
+            GameManager.GetComponent<SceneMove>().SceneShift(Scene, Phase);
         }
     }
 

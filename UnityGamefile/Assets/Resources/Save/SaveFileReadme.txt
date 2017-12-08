@@ -10,6 +10,6 @@ P 1
 Score 3720
 Coin 15
 Riddle 3
-1 false 35 3
-2 false 50 1
-3 false 50 0
+1 false 35 50 3
+2 false 50 50 1
+3 false 50 50 0

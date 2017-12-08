@@ -1,9 +1,9 @@
-﻿Name "영희"
-S 2
+﻿Name NULL
 P 1
-Score 1500
-Coin 30
+S 1
+Score 0
+Coin 0
 Riddle 3
-1 false 35 0
-2 false 50 0
-3 true 0 0
+1 false 5 10 3
+2 false 15 20 2
+3 true 0 30 0

@@ -6,12 +6,12 @@ using System.Text;
 
 public class RiddleHandler : MonoBehaviour {
 
-    //몇번 수수께끼를 풀었니
-    List<bool> IsRiddleSolved = new List<bool>();
+    //수수께끼 정보
+    List<RiddleClass> RiddleList = new List<RiddleClass>();
     //수수께기 점수
     int Score;
     //힌트코인 개수
-    int HintCoinCount;
+    int CoinCount;
 
 	// Use this for initialization
 	void Start () {
@@ -23,17 +23,15 @@ public class RiddleHandler : MonoBehaviour {
 		
 	}
 
-    public void RiddleDataLoad(String RD,int S,int HC)
+    public void RiddleDataLoad(List<RiddleClass> tempRiddleCache, int Sco,int Coin)
     {
-        String TempRiddleSolveData = RD;
-        Score = S;
-        HintCoinCount = HC;
-        //0번 데이터는 언제나 True
-        IsRiddleSolved.Add(true);
+        Score = Sco;
+        CoinCount = Coin;
+
         //받은 RiddleData로부터 데이터를 설정한다.
-        for (int i=0;i<TempRiddleSolveData.Length;i++)
+        for (int i=0;i<tempRiddleCache.Count;i++)
         {
-            IsRiddleSolved.Add(TempRiddleSolveData[i] == 'T');
+            RiddleList.Add(tempRiddleCache[i]);
         }
     }
 }
