@@ -1,8 +1,8 @@
-﻿Name NULL
+﻿Name two
 P 1
 S 1
 Score 0
-Coin 0
+Coin 1
 Riddle 3
 1 false 5 10 3
 2 false 15 20 2

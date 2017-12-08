@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 using System.Text;
 using System;
@@ -11,6 +12,7 @@ public class LoadButton : MonoBehaviour {
     //게임매니저
     GameObject GameManager;
     int Phase, Scene, Coin, Score;
+    public Text NameText, RiddleText,Cointext;
     string Name;
     //수수께끼 정보
     List<RiddleClass> RiddleCache = new List<RiddleClass>();
@@ -36,10 +38,19 @@ public class LoadButton : MonoBehaviour {
         Score = Score_data;
         Name = Name_data;
 
-        for(int i=0;i<Riddle.Count;i++)
+        int ClearedRiddleCount = 0;
+        //클리어한 수수께끼 개수를 셉니다(그리고 데이터를 옮기는것도 합니다)
+        for (int i = 0; i < Riddle.Count; i++)
         {
             RiddleCache.Add(Riddle[i]);
+            if (Riddle[i].IsSolved)
+                ClearedRiddleCount++;
         }
+        //받아온 데이터를 렌더합니다.
+        NameText.text = Name;
+        RiddleText.text = ClearedRiddleCount.ToString();
+        Cointext.text = Coin.ToString();
+
 
         
     }
