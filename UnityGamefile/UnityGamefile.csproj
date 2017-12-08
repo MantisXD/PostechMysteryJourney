@@ -228,6 +228,7 @@
     <Compile Include="Assets\Resources\Test1.cs" />
     <Compile Include="Assets\Scripts\GameManager\FadeIO.cs" />
     <Compile Include="Assets\Scripts\GameManager\GameManagerLinker.cs" />
+    <Compile Include="Assets\Scripts\GameManager\MainUIHandler.cs" />
     <Compile Include="Assets\Scripts\GameManager\NPCHandler.cs" />
     <Compile Include="Assets\Scripts\GameManager\RiddleHandler.cs" />
     <Compile Include="Assets\Scripts\GameManager\SaveLoadHandler.cs" />
@@ -243,6 +244,9 @@
     <Compile Include="Assets\Scripts\Script\ScriptPrinter.cs" />
     <Compile Include="Assets\Scripts\Script\ScriptText.cs" />
     <Compile Include="Assets\Scripts\ScriptTextScroll.cs" />
+    <Compile Include="Assets\Scripts\UI\MapUI.cs" />
+    <Compile Include="Assets\Scripts\UI\PlayerDataInfo.cs" />
+    <Compile Include="Assets\Scripts\UI\SaveUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Background\BGreadme.txt" />

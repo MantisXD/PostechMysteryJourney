@@ -48,6 +48,7 @@ public class ScriptHandler : MonoBehaviour
         Printer.SetActive(false);
         ForeGround = GameObject.Find("Foreground");
         Loaded = false;
+        GetComponent<MainUIHandler>().Linker();
     }
 
     void Awake()

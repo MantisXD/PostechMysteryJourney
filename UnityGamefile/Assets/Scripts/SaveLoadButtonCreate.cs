@@ -14,6 +14,7 @@ public class SaveLoadButtonCreate : MonoBehaviour {
 
     //템플릿이랑 로드 버튼들
     public GameObject LoadButton_Prefab;
+    public GameObject LoadNewButton_Prefab;
     public GameObject Cast;
     List<GameObject> LoadButtons = new List<GameObject>();
 
@@ -45,7 +46,7 @@ public class SaveLoadButtonCreate : MonoBehaviour {
             TempLoad.transform.SetParent(Cast.transform);
             RectTransform TempRect = TempLoad.GetComponent<RectTransform>();
             //-> 위치를 지정한다.
-            TempRect.anchoredPosition = new Vector2(0, (-1) * ButtonHeight * c);
+            TempRect.anchoredPosition = new Vector2(0, (-1.1f) * ButtonHeight * c);
             //크기도 지정한다.
             TempRect.sizeDelta = new Vector2(0, ButtonHeight);
             TempRect.sizeDelta = new Vector2(TempRect.sizeDelta.x * 0.8f, TempRect.sizeDelta.y * 0.8f);
@@ -119,6 +120,8 @@ public class SaveLoadButtonCreate : MonoBehaviour {
             TempLoad.GetComponent<LoadButton>().GetLoadData(Phase, Scene, Coin, Score, Name, tempRiddleCache,c);
             c++;
             Reader.Close();
+
+            //(만약 처음부터를 선택했다면 새로운 데이터 버튼도 생성해준다.                     
         }
         //버튼 다 만들었으면 Cast를 만들어준다.
         Cast.GetComponent<RectTransform>().sizeDelta = new Vector2(0, ButtonHeight * c);

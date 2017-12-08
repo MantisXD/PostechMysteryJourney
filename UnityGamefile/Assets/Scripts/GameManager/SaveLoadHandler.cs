@@ -30,6 +30,7 @@ public class SaveLoadHandler : MonoBehaviour {
         SaveLoadBoundary.SetActive(true);
         SaveLoadBackground.SetActive(true);
         SaveLoadBoundary.GetComponent<SaveLoadButtonCreate>().CreateLoadButton(NewGame);
+
     }
 
 	// Update is called once per frame

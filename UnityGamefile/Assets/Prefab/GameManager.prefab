@@ -21,7 +21,10 @@ GameObject:
   - component: {fileID: 4323881239897222}
   - component: {fileID: 114302599558601796}
   - component: {fileID: 114348414281640638}
-  - component: {fileID: 114244457798392372}
+  - component: {fileID: 114008889647993238}
+  - component: {fileID: 114057942527947822}
+  - component: {fileID: 114776069560159154}
+  - component: {fileID: 114912478331135890}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -42,15 +45,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114244457798392372
+--- !u!114 &114008889647993238
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437617646607132}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef0c2618765ecad4e8c37a6b4ac97948, type: 3}
+  m_Script: {fileID: 11500000, guid: dd797d85ac2ace44b9427932a5671d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveLoadBackground: {fileID: 0}
+  SaveLoadBoundary: {fileID: 0}
+  StartHead: {fileID: 0}
+  NewHead: {fileID: 21300000, guid: 460324ddc90938443bc41e8e88672744, type: 3}
+  OldHead: {fileID: 21300000, guid: 0b593449cfabd6746b9f032777537cef, type: 3}
+--- !u!114 &114057942527947822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437617646607132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14914e4b90a74f74e87f1b897962efa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114302599558601796
@@ -83,3 +102,28 @@ MonoBehaviour:
   Phase: -1
   Loaded: 0
   RawScript: []
+--- !u!114 &114776069560159154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437617646607132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c9e120d686aa046974659b39aac565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Map: {fileID: 0}
+  Save: {fileID: 0}
+  PlayerData: {fileID: 0}
+--- !u!114 &114912478331135890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437617646607132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3858e03279b20a54ea94efea3facc64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
