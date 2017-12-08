@@ -20,13 +20,21 @@ public class ScriptHandler : MonoBehaviour
     public List<String> RawScript = new List<String>();
     NPCHandler GMNPCHandler;
     Image BackGround;
-  
+
     protected GameObject Printer;
     string ScriptCache;
     //모든 Script를 분류 후 저장합니다.
     //Key는 "(NPC ID)_(순서)"로 구성되며, Script[]는 그 Cluster의 모든 Script를 나타냅니다.
     Dictionary<string, List<String> > ScriptDataBase = new Dictionary<string, List<String> >();
     GameObject ForeGround;
+    
+    //플레이어의 이름을 저장합니다. 파일 Load하면서 받아옵니다.
+    String PlayerName = " ";
+    
+    public void SetName(String Name)
+    {
+        PlayerName = Name;
+    }
 
     //씬을 넘어올때마다 호출됩니다. 다른 Object를 저장하는 변수를 가리키도록 합니다.
     public void Linker(int S,int P)
