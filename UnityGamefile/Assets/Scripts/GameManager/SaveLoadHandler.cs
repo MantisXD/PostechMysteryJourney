@@ -15,8 +15,24 @@ public class SaveLoadHandler : MonoBehaviour {
 		
 	}
 	
+    //로드창 띄워둔거 끌때 사용
+    public void LoadCancel()
+    {
+        GameObject temp;
+        while((temp=GameObject.FindWithTag("LoadButton")) != null)
+        {
+            Object.Destroy(temp);
+        }
+
+        SaveLoadBackground.SetActive(false);
+        SaveLoadBoundary.SetActive(false);
+
+    }
+
+
     public void LoadWindowCreate(bool NG)
     {
+        //새로 시작하는건지 이어서 하는건지를 구분하는 이미지를 띄웁니다.
         if (NG)
         {
             StartHead.GetComponent<Image>().sprite = NewHead;

@@ -6,7 +6,7 @@ public class RiddleClass : MonoBehaviour {
 
     public int Number, LeftScore, Hint, InitScore;
     public bool IsSolved;
-
+    public string Name;
 
 	// Use this for initialization
 	void Start () {

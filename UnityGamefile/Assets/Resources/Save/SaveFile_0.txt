@@ -1,0 +1,6 @@
+﻿Name NULL
+P 1
+S 1
+Score 0
+Coin 0
+Riddle -1

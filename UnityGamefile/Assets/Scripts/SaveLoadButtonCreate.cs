@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 using System;
+using UnityEngine.UI;
 
 //세이브로드 파일을 읽고, 그에 따른 버튼을 만들어줍니다.
 
@@ -16,6 +17,7 @@ public class SaveLoadButtonCreate : MonoBehaviour {
     public GameObject LoadButton_Prefab;
     public GameObject LoadNewButton_Prefab;
     public GameObject Cast;
+    public Sprite NewFileSprite;
     List<GameObject> LoadButtons = new List<GameObject>();
 
     //버튼 크기
@@ -23,7 +25,8 @@ public class SaveLoadButtonCreate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	}
+       
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,6 +35,10 @@ public class SaveLoadButtonCreate : MonoBehaviour {
 
     public void CreateLoadButton(bool NewGame)
     {
+        //빈 세이브파일 텍스쳐를 불러옵니다
+        Texture2D tempText = Resources.Load<Texture2D>("Images/Load/EmptyFile");
+        NewFileSprite = Sprite.Create(tempText, new Rect(0.0f, 0.0f, tempText.width, tempText.height), new Vector2(0.5f, 0.5f));
+
         //리소스 폴더 내 세이브 파일들의 위치입니다. Savefile_X.txt입니다.
         string path = Application.dataPath + "/Resources/Save/SaveFile_";
         int c = 1;
@@ -121,8 +128,27 @@ public class SaveLoadButtonCreate : MonoBehaviour {
             c++;
             Reader.Close();
 
-            //(만약 처음부터를 선택했다면 새로운 데이터 버튼도 생성해준다.                     
+           
         }
+        //(만약 처음부터를 선택했다면 새로운 데이터 버튼도 생성해준다.   
+        if (NewGame)
+        {
+            //파일을 로드하면 버튼을 만들고
+            GameObject TempLoad = Instantiate(LoadButton_Prefab);
+            // -> 상속관계 형성하고 
+            TempLoad.transform.SetParent(Cast.transform);
+            RectTransform TempRect = TempLoad.GetComponent<RectTransform>();
+            //-> 위치를 지정한다.
+            TempRect.anchoredPosition = new Vector2(0, (-1.1f) * ButtonHeight * c);
+            //그래픽을 변경해주고
+            TempLoad.GetComponent<Image>().sprite = NewFileSprite;
+            //크기도 지정한다.
+            TempRect.sizeDelta = new Vector2(0, ButtonHeight);
+            TempRect.sizeDelta = new Vector2(TempRect.sizeDelta.x * 0.8f, TempRect.sizeDelta.y * 0.8f);
+            //한개 추가요
+            c++;
+        }
+
         //버튼 다 만들었으면 Cast를 만들어준다.
         Cast.GetComponent<RectTransform>().sizeDelta = new Vector2(0, ButtonHeight * c);
     }
