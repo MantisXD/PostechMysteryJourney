@@ -26,7 +26,7 @@ public class SceneMove : MonoBehaviour {
 
     IEnumerator LoadMainScene(int S=1,int P=1)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
 
         while (!asyncLoad.isDone)
         {
