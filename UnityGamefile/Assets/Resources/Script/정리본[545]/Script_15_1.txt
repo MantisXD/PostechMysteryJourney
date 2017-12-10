@@ -1,0 +1,15 @@
+﻿S 15
+P 1
+
+NPCCount 2
+NPC 1 x y
+NarrStart
+
+//[기숙사 1층 배경]
+
+Speaker PONIX
+Script "하루 종일 수수께끼를 푸느라 고생 많았어. 각자 자유시간을 보내고 내일 아침에 보자! 내일 아침에 일찍 일어나야 하니깐 일찍 자고! 나보다 늦게 일어나면 놓고 갈 것이니깐 그렇게 알고. 거짓말 아니다~"
+
+NarrEnd
+
+SceneShift 10 3

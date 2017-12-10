@@ -50,7 +50,8 @@ public class LoadButton : MonoBehaviour {
                 ClearedRiddleCount++;
         }
         //받아온 데이터를 렌더합니다.
-        NameText.text = Name;
+        if (Name != "NULL")
+            NameText.text = Name;
         RiddleText.text = ClearedRiddleCount.ToString();
         Cointext.text = Coin.ToString();
 
@@ -62,36 +63,63 @@ public class LoadButton : MonoBehaviour {
     {
         Number = Num;
     }
-    void StartNewGame()
-    {        
+    void StartNewGame(bool NewFile)
+    {
+        IEnumerator ProfileLoadCoroutine = GetRiddleProfile(NewFile);
         //더미 데이터를 추가합니다.
         RiddleCache.Add(new RiddleClass());
-        Profilepath= "file:///" + Application.dataPath + "/Resources/Riddle/RiddleProfile.txt";
-        GetRiddleProfile();
+        Profilepath = "file:///" + Application.dataPath + "/Resources/Riddle/RiddleProfile.txt";
+        StartCoroutine(ProfileLoadCoroutine);
+        //수수께끼를 다 만들었당
+        //새 게임을 시작한다.
+        GameManager.GetComponent<SceneMove>().SceneShift(0, 0);
+
     }
     //수수께끼의 Profile을 받아와서 저장합니다.(수수께끼를 새로 Load할때만 사용합니다)
-    IEnumerator GetRiddleProfile()
+    //New가 True이면 완전히 새로운 파일을 형성한다는 뜻입니다.
+    IEnumerator GetRiddleProfile(bool New)
     {
         RiddleProfileWWW = new WWW(Profilepath);
-        yield return RiddleProfileWWW;
+        while (!RiddleProfileWWW.isDone)
+        {
+            yield return null;
+        }
         int c = 1;
         //Load가 끝났으면 프로필을 할당하자아아ㅏㅏㅏ
-        string ProfileCache = RiddleProfileWWW.text;
-        string[] Profile = ProfileCache.Split('\n');
-        for(int i=0;i<Profile.Length;i++)
+        String ProfileCache = RiddleProfileWWW.text;
+        Debug.Log(ProfileCache);
+        String[] Profile = ProfileCache.Split(new char[] {'\0','\r','\n'});
+        Debug.Log(Profile);
+        for (int i = 0; i < Profile.Length; i++)
         {
-            //주석은 걸러
-            if (Profile[i].Length >= 2 && Profile[i].Substring(0, 2) == "//")
+            //주석은 걸러(거르는 과정에서 맨 처음 텍스트의 맨 처음에 알 수 없는 문자가 하나 껴있기 때문에 그걸 해결하고자 주석 판정을 2개로 나누었습니다)
+            if ((Profile[i].Length >= 2 &&(Profile[i].Substring(0, 2) == "//" || Profile[i].Substring(1, 2) == "//")) || Profile[i].Length < 2)
                 continue;
             string[] SpecificRiddleProfile = Profile[i].Split('"');
-            //이름을 할당한다.
-            RiddleCache[c].Name = SpecificRiddleProfile[1];
-            //점수도 할당한다.
-            RiddleCache[c].InitScore = RiddleCache[c].LeftScore = int.Parse(SpecificRiddleProfile[2].Substring(1));
+            //새로운 파일을 만드는 중인가?
+            if (New)
+            {
+                RiddleClass tempRiddle = new RiddleClass();
+                tempRiddle.Name = SpecificRiddleProfile[1];
+                tempRiddle.InitScore = tempRiddle.LeftScore = int.Parse(SpecificRiddleProfile[2].Substring(1));
+                tempRiddle.Number = int.Parse(SpecificRiddleProfile[0].Substring(0, SpecificRiddleProfile[0].Length-1));
+                tempRiddle.Hint = 0;
+                tempRiddle.IsSolved = false;
+                RiddleCache.Add(tempRiddle);
+
+            }
+            else
+            {
+                //이름을 할당한다.
+                RiddleCache[c].Name = SpecificRiddleProfile[1];
+                //점수도 할당한다.
+                RiddleCache[c].InitScore = RiddleCache[c].LeftScore = int.Parse(SpecificRiddleProfile[2].Substring(1));
+            }
             c++;
         }
+        RiddleProfileWWW.Dispose();
     }
-    //새로운 파일을 만듭니다.
+    //새로운 세이브파일을 만듭니다. 
     public void NewLoad()
     {
         String path = Application.dataPath + "/Resources/Save/SaveFile_" + Number.ToString() + ".txt";
@@ -107,9 +135,9 @@ public class LoadButton : MonoBehaviour {
         Coin = 0;
         Writer.WriteLine("Coin 0");
         Writer.WriteLine("Riddle " + (RiddleCache.Count - 1).ToString());
-
+        Writer.Close();
         //새로운 게임을 시작하는거면 별도의 함수를 호출
-        StartNewGame();
+        StartNewGame(true);
     }
 
     //호출되면 다짜고짜 로드를 시작합니다.
@@ -142,7 +170,7 @@ public class LoadButton : MonoBehaviour {
             }
             Writer.Close();
             //새로운 게임을 시작하는거면 별도의 함수를 호출
-            StartNewGame();
+            StartNewGame(false);
         }
         else
         {

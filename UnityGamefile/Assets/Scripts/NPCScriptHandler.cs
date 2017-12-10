@@ -21,7 +21,7 @@ public class NPCScriptHandler : ScriptHandler
     //NPC의 ID와 Sequence입니다. ScriptHandler에게 적절한 Script를 받아내기 위한 정보입니다.
     int NPC_ID, ScriptSequence;
     // Use this for initialization
-
+    
     private void Awake()
     {
         ScriptManager = GameObject.Find("GameManager").GetComponent<ScriptHandler>();
@@ -44,10 +44,10 @@ public class NPCScriptHandler : ScriptHandler
     public void ScriptFetcher()
     {
         TempScript = ScriptManager.Get_Script(NPC_ID, ScriptSequence);
-        //
+        PlayerName = ScriptManager.Get_Name();
         Printer.SetActive(true);
         //대사를 넘겨줍니다.
-        Printer.GetComponent<ScriptPrinter>().Get_Script(TempScript);
+        Printer.GetComponent<ScriptPrinter>().Get_Script(TempScript,PlayerName);
         //생성한 뒤 TempScript를 넘겨준다.
 
         ScriptSequence++;

@@ -1,0 +1,14 @@
+﻿S 4
+P 2
+
+NPCCount 1
+NPC 1 x y
+
+NarrStart
+
+Speaker 인솔자1
+Script "수고하셨습니다! 명찰 받으시고 저기 도서관으로 명찰을 찍고 들어가시면 되겠습니다."
+
+NarrEnd
+
+SceneShift 5

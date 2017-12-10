@@ -1,0 +1,16 @@
+﻿S 9
+P 1
+
+NPCCount 1
+NPC 1 x y
+
+NarrStart
+
+//[더러운 기숙사방 + 노트북을 클릭 가능하게 함]
+
+Speaker Player
+Script "여기가 조장 방인 것 같은데, 뭔가 수상해 보여. 근데, 여기 인간적으로 너무 더러운 것 아닌가. 일단 여기를 치우자"
+
+NarrEnd
+
+SceneShift 10

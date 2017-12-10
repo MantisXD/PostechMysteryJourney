@@ -28,6 +28,9 @@ Speaker 깝쭉이
 Script "맞는데"
 Speaker NULL
 Script "니 뚝배기를 깨줄까?"
+Speaker 깝쭉이
+Script "내가 내는 수수께끼 맞추면 깨게 해줄께"
+Riddle 1
 
 ScriptList End
 

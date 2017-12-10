@@ -1,0 +1,16 @@
+﻿S 5
+P 1
+
+NPCCount 1
+NPC 1 x y
+
+NarrStart
+
+//[도서관 전체적인 사진]
+
+Speaker Player
+Script "여기가 말로만 듣던 포항공과대학의 도서관이구나! 진짜 너무 예쁘다. 이런 곳에서 공부한다면 너무 날아갈 것만 같은걸. 난 반드시 대학을 포항공과대학교로 와야겠어."
+
+NarrEnd
+
+Sceneshift 6

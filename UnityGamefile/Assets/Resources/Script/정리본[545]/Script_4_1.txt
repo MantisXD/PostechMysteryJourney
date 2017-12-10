@@ -1,0 +1,36 @@
+﻿S 4
+P 1
+
+NPCCount 2
+NPC 1 x y
+NPC 2 x y
+
+NarrStart
+
+//[5층 도서관 앞에서 찍은 사진 + 인솔자1이 도서관 맨 앞에 서있음]
+
+Speaker 인솔자1
+Script "어서 오세요. CT 캠프에 참석하시는 분이신가요? 혹시 성함이 어떻게 되시나요?"
+
+Speaker 스피드웨건
+Script "어떤 NPC들의 경우 특정한 정답을 입력해야만 게임을 더 진행해야 하는 경우도 있어. 이번 NPC의 경우 아까 입력한 이름과 같은 이름을 입력해야 아마 스토리를 더 진행할 수 있을거야. 다행히 이런 경우, 정답 입력 횟수에 제한은 없지만, 틀릴 때 마다 점수가 조금씩 깎일 수 있으니 조심하라고!"
+
+Riddle 1
+
+RiddleSuccess 1 start
+
+Speaker NULL
+Script "cout이나 printf, 그리고 cin의 경우 앞으로 사용할 정말 기본적인 함수이니, 잘 익혀두도록 하자."
+
+RiddleSuccess End
+
+RiddleFail 1 start
+
+Speaker NULL
+Script "코드가 어딘지 이상하다. 조금 더 생각해보자."
+
+RiddleFail End
+
+NarrEnd
+
+PhaseShift 2

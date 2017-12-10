@@ -1,0 +1,34 @@
+﻿S 17
+P 1
+
+NPCCount 4
+NPC 1 x y
+NPC 2 x y
+NPC 3 x y
+NPC 4 x y
+
+NarrStart
+
+//[학생회관 사진]
+
+Speaker Player
+Script "저기는 뭐 하는 곳이지?"
+
+Speaker PONIX
+Script "여기는 아틀라스 홀이고 주로 춤 동아리 CTRL-D 와 치어로가 연습하는 공간이야. 저 위로 갈 경우…"
+
+Speaker Player
+Script "저기 CTRL-D와 치어로 연습하는 것 보고 가자."
+
+Speaker 학생A
+Script "역시 대학교 동아리는 다르구나. 진짜 멋있다."
+
+Speaker 학생B
+Script "그게 아니야. 포항공과대학교라서 더 멋있는 거야!"
+
+Speaker PONIX
+Script "공연 동아리 외에도 다양한 전시 동아리나 재미있는 동아리도 많으니 관심있으면 구경해보든가."
+
+NarrEnd
+
+SceneShift 18

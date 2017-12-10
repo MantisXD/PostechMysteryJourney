@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: f6155a91b407cac4090aadf572189bee
+timeCreated: 1512878635
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - LoadButton_Prefab: {fileID: 1425875065836944, guid: a89b3728bf432b34990fdc24e19af060,
+      type: 2}
+  - LoadNewButton_Prefab: {fileID: 1762846284620324, guid: 5238c2d895b1f944ba3b9d7650b4dcbd,
+      type: 2}
+  - Cast: {instanceID: 0}
+  - SaveButton_Prefab: {fileID: 1489948197423788, guid: 2c75632efede1fc4cae5f4590390c15e,
+      type: 2}
+  - SaveNewButton_Prefab: {fileID: 1670511414371664, guid: 33040d641bf5a8649b83ab2f0d1f3d70,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -14,12 +14,16 @@ public class ScriptPrinter : MonoBehaviour {
     bool ScriptGate, Loaded;
     //몇줄 남았는가?
     int pos = 0, count;
+    String PlayerName;
 
     List<String> Script;
 
     public GameObject ScriptBack, SpeakerBack;
     NPCHandler NPCSpriteHandler;
     public GameObject LeftStand, MiddleStand, RightStand;
+
+    //수수께끼를 풀었는가?(0 = 수수께기 시작도 안함 / 1 = 수수께끼 푸는 중 / 2 = 수수께끼 못품 / 3 = 수수께끼 풀었음)
+    int RiddleStatus;
 
     private void Awake()
     {
@@ -44,7 +48,8 @@ public class ScriptPrinter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (ScriptGate && (Loaded && pos < count))
+
+        if ((ScriptGate && (Loaded && pos < count)) && RiddleStatus == 0)
         {
 
             ScriptBack.SetActive(true);
@@ -82,10 +87,10 @@ public class ScriptPrinter : MonoBehaviour {
                 int.TryParse(TempScript[2], out tempPhase);
                 Handler.Shifter(tempScene, tempPhase);
             }
-            if(TempScript[0] == "Sprite")
+            if (TempScript[0] == "Sprite")
             {
                 pos++;
-                if(TempScript[1] == "Left")
+                if (TempScript[1] == "Left")
                 {
                     if (TempScript[2] == "NULL")
                     {
@@ -100,7 +105,7 @@ public class ScriptPrinter : MonoBehaviour {
                         LeftStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
                     }
                 }
-                if(TempScript[1] == "Middle")
+                if (TempScript[1] == "Middle")
                 {
                     if (TempScript[2] == "NULL")
                     {
@@ -115,7 +120,7 @@ public class ScriptPrinter : MonoBehaviour {
                         MiddleStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
                     }
                 }
-                if(TempScript[1] == "Right")
+                if (TempScript[1] == "Right")
                 {
                     if (TempScript[2] == "NULL")
                     {
@@ -131,16 +136,417 @@ public class ScriptPrinter : MonoBehaviour {
                     }
                 }
             }
+            if (TempScript[0] == "Riddle")
+            {
+
+                pos++;
+                //수수께끼 푸는중...
+                RiddleStatus = 1;
+                //수수께끼를 호출한다.
+                GameObject.Find("GameManager").GetComponent<RiddleHandler>().RiddleStart(int.Parse(TempScript[1]), true);
+            }
+
+
+        }
+        //수수께끼를 못 풀었구나!(대사출력만 관리합니다, 점수 까이는건 다른데서 하세요)
+        else if (RiddleStatus == 2)
+        {
+            string[] TempScript = Script[pos].Split(' ');
+            if (TempScript[0] == "RiddleFail")
+            {
+                do
+                {
+                    pos++;
+                    TempScript = Script[pos].Split(' ');
+                    if (TempScript[0] == "Speaker")
+                    {
+                        Set_Speaker(TempScript[1]);
+                    }
+                    if (TempScript[0] == "Script")
+                    {
+                        Set_Script(Script[pos]);
+                    }
+                    if (TempScript[0] == "SetSpeakerPhase")
+                    {
+                        pos++;
+                    }
+                    if (TempScript[0] == "SceneShift")
+                    {
+                        int temp;
+                        int.TryParse(TempScript[1], out temp);
+                        Handler.Shifter(temp, -1);
+                    }
+                    if (TempScript[0] == "PhaseShift")
+                    {
+                        int temp;
+                        int.TryParse(TempScript[1], out temp);
+                        Handler.Shifter(-1, temp);
+                    }
+                    if (TempScript[0] == "Shift")
+                    {
+                        int tempPhase, tempScene;
+                        int.TryParse(TempScript[1], out tempScene);
+                        int.TryParse(TempScript[2], out tempPhase);
+                        Handler.Shifter(tempScene, tempPhase);
+                    }
+                    if (TempScript[0] == "Sprite")
+                    {
+                        pos++;
+                        if (TempScript[1] == "Left")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                LeftStand.GetComponent<Image>().sprite = null;
+                                LeftStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                LeftStand.SetActive(true);
+                                LeftStand.GetComponent<Image>().sprite = tempS;
+                                LeftStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                        if (TempScript[1] == "Middle")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                MiddleStand.GetComponent<Image>().sprite = null;
+                                MiddleStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                MiddleStand.SetActive(true);
+                                MiddleStand.GetComponent<Image>().sprite = tempS;
+                                MiddleStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                        if (TempScript[1] == "Right")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                RightStand.GetComponent<Image>().sprite = null;
+                                RightStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                RightStand.SetActive(true);
+                                RightStand.GetComponent<Image>().sprite = tempS;
+                                RightStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                    }
+
+                } while (!(TempScript[0] == "RiddleFail" && TempScript[1] == "End"));
+                do
+                {
+                    pos += 2;
+                    TempScript = Script[pos].Split(' ');
+                } while (!(TempScript[0] == "RiddleSuccess" && TempScript[1] == "End"));
+            }
+            else
+            {
+                do
+                {
+                    pos++;
+                    TempScript = Script[pos].Split(' ');
+                } while (!(TempScript[0] == "RiddleSuccess" && TempScript[1] == "End"));
+                pos++;
+                do
+                {
+                    pos++;
+                    TempScript = Script[pos].Split(' ');
+                    if (TempScript[0] == "Speaker")
+                    {
+                        Set_Speaker(TempScript[1]);
+                    }
+                    if (TempScript[0] == "Script")
+                    {
+                        Set_Script(Script[pos]);
+                    }
+                    if (TempScript[0] == "SetSpeakerPhase")
+                    {
+                        pos++;
+                    }
+                    if (TempScript[0] == "SceneShift")
+                    {
+                        int temp;
+                        int.TryParse(TempScript[1], out temp);
+                        Handler.Shifter(temp, -1);
+                    }
+                    if (TempScript[0] == "PhaseShift")
+                    {
+                        int temp;
+                        int.TryParse(TempScript[1], out temp);
+                        Handler.Shifter(-1, temp);
+                    }
+                    if (TempScript[0] == "Shift")
+                    {
+                        int tempPhase, tempScene;
+                        int.TryParse(TempScript[1], out tempScene);
+                        int.TryParse(TempScript[2], out tempPhase);
+                        Handler.Shifter(tempScene, tempPhase);
+                    }
+                    if (TempScript[0] == "Sprite")
+                    {
+                        pos++;
+                        if (TempScript[1] == "Left")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                LeftStand.GetComponent<Image>().sprite = null;
+                                LeftStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                LeftStand.SetActive(true);
+                                LeftStand.GetComponent<Image>().sprite = tempS;
+                                LeftStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                        if (TempScript[1] == "Middle")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                MiddleStand.GetComponent<Image>().sprite = null;
+                                MiddleStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                MiddleStand.SetActive(true);
+                                MiddleStand.GetComponent<Image>().sprite = tempS;
+                                MiddleStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                        if (TempScript[1] == "Right")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                RightStand.GetComponent<Image>().sprite = null;
+                                RightStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                RightStand.SetActive(true);
+                                RightStand.GetComponent<Image>().sprite = tempS;
+                                RightStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                    }
+
+                } while (!(TempScript[0] == "RiddleFail" && TempScript[1] == "End"));
+
+            }
+            RiddleStatus = 0;
+        }
+        //수수께끼를 풀었구나!(대사출력만 관리합니다, 점수 까이는건 다른데서 하세요)
+        else if (RiddleStatus == 3)
+        {
+            string[] TempScript = Script[pos].Split(' ');
+            if (TempScript[0] == "RiddleSuccess")
+            {
+                do
+                {
+                    pos++;
+                    TempScript = Script[pos].Split(' ');
+                    if (TempScript[0] == "Speaker")
+                    {
+                        Set_Speaker(TempScript[1]);
+                    }
+                    if (TempScript[0] == "Script")
+                    {
+                        Set_Script(Script[pos]);
+                    }
+                    if (TempScript[0] == "SetSpeakerPhase")
+                    {
+                        pos++;
+                    }
+                    if (TempScript[0] == "SceneShift")
+                    {
+                        int temp;
+                        int.TryParse(TempScript[1], out temp);
+                        Handler.Shifter(temp, -1);
+                    }
+                    if (TempScript[0] == "PhaseShift")
+                    {
+                        int temp;
+                        int.TryParse(TempScript[1], out temp);
+                        Handler.Shifter(-1, temp);
+                    }
+                    if (TempScript[0] == "Shift")
+                    {
+                        int tempPhase, tempScene;
+                        int.TryParse(TempScript[1], out tempScene);
+                        int.TryParse(TempScript[2], out tempPhase);
+                        Handler.Shifter(tempScene, tempPhase);
+                    }
+                    if (TempScript[0] == "Sprite")
+                    {
+                        pos++;
+                        if (TempScript[1] == "Left")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                LeftStand.GetComponent<Image>().sprite = null;
+                                LeftStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                LeftStand.SetActive(true);
+                                LeftStand.GetComponent<Image>().sprite = tempS;
+                                LeftStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                        if (TempScript[1] == "Middle")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                MiddleStand.GetComponent<Image>().sprite = null;
+                                MiddleStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                MiddleStand.SetActive(true);
+                                MiddleStand.GetComponent<Image>().sprite = tempS;
+                                MiddleStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                        if (TempScript[1] == "Right")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                RightStand.GetComponent<Image>().sprite = null;
+                                RightStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                RightStand.SetActive(true);
+                                RightStand.GetComponent<Image>().sprite = tempS;
+                                RightStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                    }
+
+                } while (!(TempScript[0] == "RiddleSuccess" && TempScript[1] == "End"));
+                do
+                {
+                    pos += 2;
+                    TempScript = Script[pos].Split(' ');
+                } while (!(TempScript[0] == "RiddleFail" && TempScript[1] == "End"));
+            }
+            else
+            {
+                do
+                {
+                    pos++;
+                    TempScript = Script[pos].Split(' ');
+                } while (!(TempScript[0] == "RiddleFail" && TempScript[1] == "End"));
+                pos++;
+                do
+                {
+                    pos++;
+                    TempScript = Script[pos].Split(' ');
+                    if (TempScript[0] == "Speaker")
+                    {
+                        Set_Speaker(TempScript[1]);
+                    }
+                    if (TempScript[0] == "Script")
+                    {
+                        Set_Script(Script[pos]);
+                    }
+                    if (TempScript[0] == "SetSpeakerPhase")
+                    {
+                        pos++;
+                    }
+                    if (TempScript[0] == "SceneShift")
+                    {
+                        int temp;
+                        int.TryParse(TempScript[1], out temp);
+                        Handler.Shifter(temp, -1);
+                    }
+                    if (TempScript[0] == "PhaseShift")
+                    {
+                        int temp;
+                        int.TryParse(TempScript[1], out temp);
+                        Handler.Shifter(-1, temp);
+                    }
+                    if (TempScript[0] == "Shift")
+                    {
+                        int tempPhase, tempScene;
+                        int.TryParse(TempScript[1], out tempScene);
+                        int.TryParse(TempScript[2], out tempPhase);
+                        Handler.Shifter(tempScene, tempPhase);
+                    }
+                    if (TempScript[0] == "Sprite")
+                    {
+                        pos++;
+                        if (TempScript[1] == "Left")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                LeftStand.GetComponent<Image>().sprite = null;
+                                LeftStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                LeftStand.SetActive(true);
+                                LeftStand.GetComponent<Image>().sprite = tempS;
+                                LeftStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                        if (TempScript[1] == "Middle")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                MiddleStand.GetComponent<Image>().sprite = null;
+                                MiddleStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                MiddleStand.SetActive(true);
+                                MiddleStand.GetComponent<Image>().sprite = tempS;
+                                MiddleStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                        if (TempScript[1] == "Right")
+                        {
+                            if (TempScript[2] == "NULL")
+                            {
+                                RightStand.GetComponent<Image>().sprite = null;
+                                RightStand.SetActive(false);
+                            }
+                            else
+                            {
+                                Sprite tempS = NPCSpriteHandler.GetStandingNPCSprite(int.Parse(TempScript[2]));
+                                RightStand.SetActive(true);
+                                RightStand.GetComponent<Image>().sprite = tempS;
+                                RightStand.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, tempS.rect.width / tempS.rect.height * 350);
+                            }
+                        }
+                    }
+
+                } while (!(TempScript[0] == "RiddleSuccess" && TempScript[1] == "End"));
+
+            }
+            RiddleStatus = 0;
         }
         else if (pos >= count)
         {
             Set_Speaker("NULL");
             Set_Script("NULL");
-
             pos = 0;
             count = 1;
             ScriptGate = false;
-
             ScriptBack.SetActive(false);
             SpeakerBack.SetActive(false);
             //나를 죽여줘
@@ -148,8 +554,9 @@ public class ScriptPrinter : MonoBehaviour {
         }
 	}
     //대사를 복사한다(NPCScriptHandler에서 얘를 생성함과 동시에 호출함)
-    public void Get_Script(List<String> S)
+    public void Get_Script(List<String> S,String Name)
     {
+        PlayerName = Name;
         Script = S;
         Loaded = true;
         ScriptGate = true;
@@ -175,6 +582,10 @@ public class ScriptPrinter : MonoBehaviour {
         {
             Speaker.text = " ";
         }
+        else if (SpeakerName == "Player")
+        {
+            Speaker.text = PlayerName;
+        }
         else
         {
             Speaker.text = SpeakerName;
@@ -195,6 +606,11 @@ public class ScriptPrinter : MonoBehaviour {
         }
         ScriptGate = false;
     }
+    public void SetRiddleState(int value)
+    {
+        RiddleStatus = value;
+    }
+
     //Scene이나 Phase를 바꿔주는 함수입니다.
     void Shift(int Phase, int Scene)
     {

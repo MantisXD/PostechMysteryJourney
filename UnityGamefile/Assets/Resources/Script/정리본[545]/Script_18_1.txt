@@ -1,0 +1,44 @@
+﻿S 18
+P 1
+
+NPCCount 2
+NPC 1 x y
+NPC 2 x y
+
+NarrStart
+
+//[학관 앞 내리막길 배경]
+
+Speaker PONIX
+Script "조장아!"
+
+Speaker 조장
+Script "어? 치킨이다!"
+
+Speaker PONIX
+Script "치킨 아니야! 그렇게 부르지 말라고!"
+
+Speaker 조장
+Script "알았어 알았어, 그나저나 갑자기 뛰어오고 무슨 일이야?"
+
+Speaker PONIX
+Script "너 보내고 나서 1명으로는 힘들 거 같아서 애들 좀 더 데리고 왔어"
+
+Speaker 조장
+Script "아.. 그러고 보니 너 뒤에 있는 애들 다 CT캠프 학생들이네? 네가 데리고 온 거야?"
+
+Speaker PONIX
+Script "응응, 아무튼 그게 중요한 것이 아니야!"
+
+Speaker 조장
+Script "무슨 일인데 그래?"
+
+Speaker PONIX
+Script "근데 내가 얘네들을 급하게 데려오느라 정확히 무슨 일이 일어났는지 설명을 못해줬어. 네가 대신 해주면 안될까?"
+
+Speaker 조장
+Script "그럴까?"
+
+NarrEnd
+
+ScenceShift 19

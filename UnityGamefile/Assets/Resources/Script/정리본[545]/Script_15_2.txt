@@ -1,0 +1,95 @@
+﻿S 15
+P 2
+
+NPCCount 4
+NPC 1 x y
+NPC 2 x y
+NPC 3 x y
+NPC 4 x y
+
+NarrStart
+
+//[RC 로비]
+
+Speaker PONIX
+Script "자 이제 어떤걸 해야 하지?"
+
+Speaker Player
+Script "엥? 그걸 네가 알아야지"
+
+Speaker PONIX
+Script "아 그러게? 어떡하지?"
+
+Speaker 학생 A
+Script "그럼 아무런 계획도 없이 우릴 데려왔다는 거야?"
+
+Speaker PONIX
+Script "뭐… 와서 생각해보는 것도 나쁘지 않잖아."
+
+Speaker Player
+Script "(속닥속닥) 어떨 때 보면 참 리더십 없어 보인단 말이지."
+
+Speaker PONIX
+Script "그럼 일단 우리 학교를 찾아보자."
+
+Speaker Player
+Script "대충 어딜 찾아볼지 결정을 해볼까?"
+
+Speaker PONIX
+/언니를 찾을 수 있지?
+
+Speaker Player
+Script "아 그걸 우리가 묻고 싶다고!"
+
+Speaker PONIX
+Script "아 나 좋은 생각이 있어. 포항공과대학교 학생들의 학생증 태그 기록을 열람하면 되지 않을까?"
+
+Speaker Player
+Script "뭐라고?"
+
+Speaker PONIX
+Script "지금 인솔자는 과거, 그러니까 너희 시간대의 학생증을 가지고 포항공과대학의 여러 문에 카드를 태그하고 있을 거야. 그 기록을 조회한다면 인솔자의 위치를 추적할 수 있지 않을까?"
+
+Speaker 학생 A
+Script "괜찮네, 그럼 그 기록을 조회하러 가자."
+
+Speaker PONIX
+Script "아마도 저기 있는 통합 검색 시스템에서 바로 열람 가능할거야."
+
+Speaker Player
+Script "모든 학생들이?"
+
+Speaker PONIX
+Script "아니. 근데 나는 가능해. 학교에서 꽤 높은 지위를 가지고 있다고."
+
+Speaker Player
+Script "그럼 한 번 조회해보자. 지금 어디이신지는 몰라도 어떤 실마리라도 있을 거야."
+
+//[컴퓨터 화면]
+
+Speaker PONIX
+Script "근데 한 가지 문제가 생겼어. 내 예상보다 데이터가 너무 많아. 근 100년동안 조장과 동명이인들이 움직인 데이터만 25만개야. 이거를 어떻게 찾아봐야 하지?"
+
+Speaker Player
+Script "이렇게 한 번 해보자!"
+
+Riddle 12
+
+RiddleSuccess 12 start
+
+Speaker 학생 B
+Script "여기 있네! 심봤다!!! 이 데이터일거야. 휴~ 힘들었어."
+
+RiddleSuccess End
+
+RiddleFail 12 start
+
+Speaker PONIX
+Script "근데, 이 사람은 우리가 아는 조장이 아닌걸?"
+
+RiddleFail End
+
+NarrEnd
+
+PhaseShift 3
+

@@ -1,0 +1,16 @@
+﻿S 2
+P 1
+
+NPCCount 1
+NPC 1 x y
+
+NarrStart
+
+//[새 지저귀는 소리와 포항공과대학교 전체 전망 사진]
+
+Speaker Player
+Script "아 여기가 그 포항공과대학교인가? 소문대로 엄청 예쁜 학교 캠퍼스에, 어머! 어머! 저것 좀 봐. 엄청 귀여운 고양이다."
+
+NarrEnd
+
+SceneShift 3

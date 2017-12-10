@@ -15,6 +15,8 @@ public class ScriptHandler : MonoBehaviour
     //지금은 기본값인 1,1로 지정됩니다.
     public int Scene, Phase;
     public bool Loaded;
+    //플레이어의 이름을 저장합니다. 파일 Load하면서 받아옵니다.
+    public String PlayerName = " ";
 
     //Parsing이 안된 RawScript를 저장합니다.(Narration만 저장합니다)
     public List<String> RawScript = new List<String>();
@@ -28,8 +30,7 @@ public class ScriptHandler : MonoBehaviour
     Dictionary<string, List<String> > ScriptDataBase = new Dictionary<string, List<String> >();
     GameObject ForeGround;
     
-    //플레이어의 이름을 저장합니다. 파일 Load하면서 받아옵니다.
-    String PlayerName = " ";
+
     
     public void SetName(String Name)
     {
@@ -49,6 +50,9 @@ public class ScriptHandler : MonoBehaviour
         ForeGround = GameObject.Find("Foreground");
         Loaded = false;
         GetComponent<MainUIHandler>().Linker();
+
+        //수수께끼의 Linker를 호출합니다
+        GetComponent<RiddleHandler>().Linker();
     }
 
     void Awake()
@@ -98,10 +102,13 @@ public class ScriptHandler : MonoBehaviour
         Printer.SetActive(true);
         //대사를 넘겨줍니다.
 
-        Printer.GetComponent<ScriptPrinter>().Get_Script(RawScript);
+        Printer.GetComponent<ScriptPrinter>().Get_Script(RawScript,PlayerName);
 
     }
-
+    public String Get_Name()
+    {
+        return PlayerName;
+    }
     public List<String> Get_Script(int ID,int Sequence)
     {
         Debug.Log(ID);
@@ -113,6 +120,7 @@ public class ScriptHandler : MonoBehaviour
     {
         Printer.SetActive(false);
     }
+
 
     //Script를 로드합니다.
     void ScriptLoader()

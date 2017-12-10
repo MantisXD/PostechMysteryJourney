@@ -4,32 +4,32 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SaveLoadHandler : MonoBehaviour {
 
-    public GameObject SaveLoadBackground;
-    public GameObject SaveLoadBoundary;
+    public GameObject LoadBackground;
+    public GameObject LoadBoundary;
+
     public GameObject StartHead;
     public Sprite NewHead, OldHead;
     bool NewGame;
 
+
     // Use this for initialization
-    void Start () {
-		
-	}
-	
+    void Start() {
+
+    }
+
     //로드창 띄워둔거 끌때 사용
     public void LoadCancel()
     {
         GameObject temp;
         while((temp=GameObject.FindWithTag("LoadButton")) != null)
         {
-            Object.Destroy(temp);
+            temp.SetActive(false);
         }
 
-        SaveLoadBackground.SetActive(false);
-        SaveLoadBoundary.SetActive(false);
+        LoadBackground.SetActive(false);
+        LoadBoundary.SetActive(false);
 
     }
-
-
     public void LoadWindowCreate(bool NG)
     {
         //새로 시작하는건지 이어서 하는건지를 구분하는 이미지를 띄웁니다.
@@ -43,12 +43,11 @@ public class SaveLoadHandler : MonoBehaviour {
         }
 
         NewGame = NG;
-        SaveLoadBoundary.SetActive(true);
-        SaveLoadBackground.SetActive(true);
-        SaveLoadBoundary.GetComponent<SaveLoadButtonCreate>().CreateLoadButton(NewGame);
+        LoadBoundary.SetActive(true);
+        LoadBackground.SetActive(true);
+        LoadBoundary.GetComponent<SaveLoadButtonCreate>().CreateLoadButton(NewGame);
 
     }
-
 	// Update is called once per frame
 	void Update () {
 		
@@ -57,5 +56,9 @@ public class SaveLoadHandler : MonoBehaviour {
     public bool IsNewGame()
     {
         return NewGame;
+    }
+    public void Linker()
+    {
+       
     }
 }

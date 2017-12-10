@@ -1,0 +1,14 @@
+﻿S 1
+P 2
+
+NPCCount 1
+NPC 1 x y
+
+NarrStart
+
+Speaker NULL
+Script "정말 재미있는 CT캠프였다. 짧은 시간이었지만 왜 그렇게 길게 느껴졌던 것일까? 그리고 PONIX라는 포항공과대학교의 마스코트는 유독 귀여웠다. 나중에 꼭 포항공과대학교 컴퓨터 공학과로 가고 싶다는 생각이 들었다. "
+
+NarrEnd
+
+Ending

@@ -1,0 +1,93 @@
+﻿S 14
+P 1
+
+NPCCount 3
+NPC 1 x y
+NPC 2 x y
+NPC 3 x y
+
+//[밤에 찍은 78계단 사진]
+ScriptList 1 1 start
+//서브 수수께끼 #5 칠팔이의 오늘내일
+
+Speaker 칠팔이
+Script "어디서 본 사람인 것 같은데, 자네 혹시 나랑 구면인가?"
+
+Speaker Player
+Script "아 그때 그 고양이잖아. 여전히 귀엽구나."
+
+Speaker 칠팔이
+Script "104살이나 되는 고양이에게 귀엽다니. 무엄하다."
+
+Speaker Player
+Script "아 104살이면 어르신이시네요. 죄송합니다 어르신."
+
+Speaker 칠팔이
+Script "100년전 이맘때쯤에 나를 즐겁게 해주던 친구가 있었는데, 그 친구가 어찌나 수수께끼를 잘 풀던지 그립구나."
+
+Speaker Player
+Script "아 그런 친구가 있었군요. 혹시 그 친구가 처음에 껴안아주지 않았나요?"
+
+Speaker 칠팔이
+Script "그랬었던 같군. 그때도 무엄하다고 했었던 것 같은데. 그것이 중요한 게 아닐세. 내가 주는 수수께끼를 풀어보게나."
+
+Riddle 10
+
+RiddleSuccess 10 start
+
+Speaker 칠팔이
+Script "지금 보니 100년 전 그 친구를 닮은 것 같군... 그 친구의 손주인가 자네?"
+
+RiddleSuccess End
+
+RiddleFail 10 start
+
+
+Speaker 칠팔이
+Script "그 친구가 그립군... 그 친구는 잘만 풀었던 것 같은데."
+
+
+RiddleFail End
+
+ScriptList End
+
+ScriptList 2 1 start
+//서브 수수께끼 #6 포항공대 대표 까불이
+
+Speaker 까불이
+Script "어이 거기 멍청이"
+
+Speaker Player
+Script "나?"
+
+Speaker 까불이
+Script "그래 너! 아~ 이 친구는 무식한데에다 눈치까지 없구나."
+
+Speaker PONIX
+Script "참아. 저 친구 원래 저런 친구야."
+
+Speaker Player
+Script "맞아, 오늘 아침에도 만났는걸"
+
+Speaker 까불이
+Script "오늘 아침에 나를 만난 친구는 아무도 없다. 기억력까지 부족하다니 하하. 정말 멍청이 그 자체군. 내가 주는 수수께기는 당연히 못 풀 것이다."
+
+Riddle 11
+
+RiddleSuccess 11 start
+
+Speaker 까불이
+Script "100년전에 내 문제를 푼 사람 이후로 네가 처음이다. 100년동안 연구한 수수께끼가 이렇게 쉽게 풀리다니. 용납할 수 없어!"
+
+RiddleSuccess End
+
+RiddleFail 11 start
+
+Speaker 까불이
+Script "후후… 이 문제는 무려 100년동안 아무도 풀지 못한 문제라고, 좀 더 힘을 내보시지 그래?"
+
+RiddleFail End
+
+ScriptList End
+
+SceneShift 15

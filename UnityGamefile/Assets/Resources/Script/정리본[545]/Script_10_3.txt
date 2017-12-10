@@ -1,0 +1,32 @@
+﻿S 10
+P 3
+
+NPCCount 3
+NPC 1 x y
+NPC 2 x y
+NPC 3 x y
+
+NarrStart
+
+//[첫날 스토리 정리]
+
+Speaker NULL
+Script "포항공과대학교에서 CT캠프를 참여하던 중 갑작스런 쿵 소리가 들렸다. 교수님의 강연이 끝난 후 각자 조별과제를 하러 가는데, 인솔자가 사라진 것을 발견. 인솔자의 방을 방문했더니 웬걸, PONIX와의 접선이라는 수상한 문구를 발견한다. PONIX와의 접선을 성공하였다."
+
+//[기숙사 아무 방]
+
+Speaker Player
+Script "이 게으름뱅이 PONIX야 일어나!"
+
+Speaker PONIX
+Script "아 졸려 5분만 더 자게 해줘"
+
+Speaker Player
+Script "어서 인솔자를 찾으러 가야할거 아니야!"
+
+Speaker PONIX
+Script "아, 알았어…"
+
+NarrEnd
+
+Shift 15 2

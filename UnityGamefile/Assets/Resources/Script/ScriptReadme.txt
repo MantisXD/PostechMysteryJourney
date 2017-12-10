@@ -66,7 +66,7 @@ RiddleSuccess [수수께끼 번호] Start
 
 RiddleFail [수수께끼 번호] Start
 -> ScriptList Start와 End 사이에서만 사용 가능합니다.
--> [수수께끼 번호]를 실패했을 때 실행되며, RiddleSuccess End가 나올때 까지 Script를 실행합니다.
+-> [수수께끼 번호]를 실패했을 때 실행되며, RiddleFail End가 나올때 까지 Script를 실행합니다.
 
 PhaseShift [Phase 번호]
 -> Phase를 바꿉니다. 

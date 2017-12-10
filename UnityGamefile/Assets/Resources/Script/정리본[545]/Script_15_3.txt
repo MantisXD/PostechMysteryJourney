@@ -1,0 +1,22 @@
+S 15
+P 3
+
+NPCCount 3
+NPC 1 x y
+NPC 2 x y
+NPC 3 x y
+
+NarrStart
+
+Speaker PONIX
+Script "마지막으로 조회되는 장소가 학생회관이니까 그 곳으로 한 번 가볼까?"
+
+Speaker 학생 A
+Script "그래. 학생회관하니깐 생각난 건데, 거기 또 78계단 올라야 하지 않아?"
+
+Speaker 학생 B
+Script "(깊은 탄식)"
+
+NarrEnd
+
+SceneShift 17
