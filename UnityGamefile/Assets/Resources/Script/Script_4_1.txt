@@ -16,7 +16,7 @@ Script "어떤 NPC들의 경우 특정한 정답을 입력해야만 게임을 �
 
 Riddle 1
 
-RiddleSuccess 1
+RiddleSuccess
 Speaker NULL
 Script "cout이나 printf, 그리고 cin의 경우 앞으로 사용할 정말 기본적인 함수이니, 잘 익혀두도록 하자."
 
@@ -26,7 +26,7 @@ SceneShift 5
 
 RiddleSuccess End
 
-RiddleFail 1
+RiddleFail
 
 Speaker NULL
 Script "코드가 어딘지 이상하다. 조금 더 생각해보자."

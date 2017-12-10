@@ -178,12 +178,14 @@ public class ScriptPrinter : MonoBehaviour {
                 }
                 if (TempScript[0] == "SceneShift")
                 {
+                    RiddleStatus = 0;
                     int temp;
                     int.TryParse(TempScript[1], out temp);
                     Handler.Shifter(temp, -1);
                 }
                 if (TempScript[0] == "PhaseShift")
                 {
+                    RiddleStatus = 0;
                     int temp;
                     int.TryParse(TempScript[1], out temp);
                     Handler.Shifter(-1, temp);
@@ -255,7 +257,7 @@ public class ScriptPrinter : MonoBehaviour {
                 ScriptBack.SetActive(true);
                 SpeakerBack.SetActive(true);
                 string[] TempScript = Script[pos].Split(' ');
-                if (TempScript[0] == "RiddleSuccess" && TempScript.Length == 1)
+                if (Script[pos] == "RiddleSuccess")
                 {
                     pos++;
                 }
@@ -282,12 +284,14 @@ public class ScriptPrinter : MonoBehaviour {
                 }
                 if (TempScript[0] == "SceneShift")
                 {
+                    RiddleStatus = 0;
                     int temp;
                     int.TryParse(TempScript[1], out temp);
                     Handler.Shifter(temp, -1);
                 }
                 if (TempScript[0] == "PhaseShift")
                 {
+                    RiddleStatus = 0;
                     int temp;
                     int.TryParse(TempScript[1], out temp);
                     Handler.Shifter(-1, temp);
@@ -355,7 +359,6 @@ public class ScriptPrinter : MonoBehaviour {
                 }
             }
         }
-        //수수께끼를 풀었구나!(대사출력만 관리합니다, 점수 까이는건 다른데서 하세요)
         else if (pos >= count)
         {
             Set_Speaker("NULL");
