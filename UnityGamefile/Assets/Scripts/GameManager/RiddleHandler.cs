@@ -136,6 +136,8 @@ public class RiddleHandler : MonoBehaviour {
     //풀었구나 기특하다
     public void RiddleSuccess()
     {
+
+            GameObject.Find("ScriptPrinter").GetComponent<ScriptPrinter>().SetRiddleState(3);
         StartCoroutine(RiddleShutDown());
         //수수께끼 관련 UI를 페이드아웃 시킨다.
         //풀었음을 표기하고, 점수를 추가하고, 남은 점수를 0으로 만든다.
@@ -143,11 +145,6 @@ public class RiddleHandler : MonoBehaviour {
         Score += RiddleList[CurrentRiddle].LeftScore;
         RiddleList[CurrentRiddle].LeftScore = 0;
         //IsScriptLoaded가 True면 ScriptHandler에게 Success을 보낸다
-        if (IsScriptLoaded)
-        {
-
-            GameObject.Find("ScriptPrinter").GetComponent<ScriptPrinter>().SetRiddleState(3);
-        }
 
     }
     //이것이 답입니까?

@@ -28,6 +28,9 @@ Script "안녕, 내 소개를 하지. 나는 이 게임의 모든 것을 설명�
 SceneShift 2
 
 RiddleSuccess End
+
+RiddleFail
+RiddleFail End
 NarrEnd
 
 
