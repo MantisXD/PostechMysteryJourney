@@ -157,6 +157,7 @@ public class RiddleHandler : MonoBehaviour {
         if(CurrentRiddle == 0)
         {
             GetComponent<ScriptHandler>().SetName(Ans);
+            RiddleSuccess();
             return true;
         }
         if(RiddleList[CurrentRiddle].Answer == Ans)

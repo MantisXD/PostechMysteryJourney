@@ -13,16 +13,14 @@ public class RiddleHint : MonoBehaviour {
     void Start () {
         StartCoroutine(SpriteUpdater());
 	}
-	
     public void Assign(int S,string HintText, Sprite OpenHint,Sprite LockHint,Sprite DisableHint)
     {
         Status = S;
-        HintText = Hint;
+        Hint = HintText;
         OpenHintSprite = OpenHint;
         LockHintSprite = LockHint;
         DisableHintSprite = DisableHint;
     }
-
     public void SetHint(int Num)
     {
         GameObject Temp = GameObject.Find("RiddleHint" + Num.ToString());
@@ -32,10 +30,7 @@ public class RiddleHint : MonoBehaviour {
         if (Hint != "NULL")
         {
             GameObject.Find("RiddleHintManager").GetComponent<RiddleHintManagement>().SetHint(Hint,Num);
-        }
-
-
-       
+        }    
     }
 
     public string GetHint()
