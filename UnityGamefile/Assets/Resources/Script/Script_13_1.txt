@@ -1,0 +1,35 @@
+﻿S 13
+P 1
+
+NPCCount 0
+NarrStart
+
+//[청암 밖에서 밤에 찍은 사진]
+
+Speaker PONIX
+Script "벌써 늦은 밤이네. 타임머신이 진짜 정확하긴 하네. 시간까지 정확하게 옮기는"
+
+Speaker 학생 A
+Script "좋아. 나도 피곤하던 참인데, 잘 됐네. 얼른 자러 가자."
+
+Speaker 학생 B
+Script "우리 근데 어디서 잘까?"
+
+Speaker PONIX
+Script "너희들을 위해서 이미 RC의 방을 구해놨어."
+
+Speaker Player
+Script "미래에도 RC가 있구나."
+
+Speaker PONIX
+Script "사실, 100년전의 RC도 충분히 좋아서 그 모습 그대로야."
+
+Speaker Player
+Script "이런 것 보면 포항공과대학 시설은 정말 좋은 것 같다."
+
+Speaker PONIX
+Script "그럼 가볼까?"
+
+NarrEnd
+
+SceneShift 14

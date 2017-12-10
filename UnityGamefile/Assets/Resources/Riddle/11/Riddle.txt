@@ -1,0 +1,4 @@
+﻿RiddleName "서브 수수께끼 #6. 포항공대 대표 까불이"
+Riddle "A이상 B이하의 소수를 모두 출력하는 함수 void print_prime(int A, int B)을 코딩해봐. (A와 B는 자연수)"
+
+Answer "nn79XAVJR"

@@ -1,0 +1,59 @@
+﻿S 7
+P 2
+
+NPCCount 1
+NPC 7 30 40
+
+NarrStart
+
+//청암 5층 강의실
+
+Speaker PONIX
+Script "무슨 용건이지?"
+
+Speaker Player
+Script "나는 NERD가 아니야!"
+
+Speaker PONIX
+Script "무슨 말을 하는지 전혀 모르겠는걸?          	"
+
+Speaker Player
+Script "나는 NERD가 아니야!"
+
+Speaker PONIX
+Script "네가 그 활동 요원이군"
+
+Speaker Player
+Script "우리 팀 조장이 사라졌어. 너는 조장이 어디로 갔는지 알고 있지?"
+
+Speaker PONIX
+Script "너희 조장은 지금 미래로 가 있는데, 이미 보고받은 것 아니었나?"
+
+Speaker Player
+Script "CT캠프에 오자마자 조장이 갑자기 사라져서 조별활동을 해야 하는데 전혀 진행을 못하고 있어. 윤교수님께서 데리러 오라 하셨다가 조장 방을 뒤졌더니 일기장에 이곳으로 오라고 되어 있어서 오게 된 거야."
+
+Speaker PONIX
+Script "그러면 네가 원래 접선을 하기로 한 사람은 아니라는 것이군."
+
+Speaker 학생 B
+Script "근데 미래로 간다는 것이 정말로 가능한 거야? 나도 가보고 싶어!"
+
+Speaker PONIX
+Script "아차, 관련 없는 사람에게는 이런걸 말하면 안되지만, 어쩌다 다 말해버렸네. 나처럼 완벽한 사람도 이렇게 실수를 가끔씩 하기도 하지."
+
+Speaker 학생 B
+Script "(속닥속닥) 딱히 그런 것 같지 않은데"
+
+Speaker Player
+Script "(속닥속닥) 근데 사람은 맞는 거겠지? 생긴 건 새처럼 생겼는데"
+
+Speaker 학생 A
+Script "(속닥속닥) 저 깃털은 진짜일까?"
+
+Speaker PONIX
+Script "무슨 말을 속닥속닥 거리는 거야! 아무튼 포항공과대학의 비밀을 알게 된 이상 너희는 나를 도와야겠어. 나를 따라오도록 해."
+
+SceneShift 12
+
+NarrEnd
+

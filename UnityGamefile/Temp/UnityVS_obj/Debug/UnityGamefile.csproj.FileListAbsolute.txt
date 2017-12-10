@@ -1,5 +1,3 @@
-C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_obj\Debug\UnityGamefile.csprojResolveAssemblyReference.cache
-C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_obj\Debug\UnityGamefile.csproj.CoreCompileInputs.cache
 C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
 C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
 C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_bin\Debug\nunit.framework.dll
@@ -118,5 +116,7 @@ C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS
 C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_bin\Debug\UnityEngine.Purchasing.xml
 C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
 C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_bin\Debug\UnityEditor.iOS.Extensions.Common.xml
+C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_obj\Debug\UnityGamefile.csprojResolveAssemblyReference.cache
+C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_obj\Debug\UnityGamefile.csproj.CoreCompileInputs.cache
 C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_obj\Debug\Assembly-CSharp.dll
 C:\Users\bsble\Documents\GitHub\PostechMysteryJourney\UnityGamefile\Temp\UnityVS_obj\Debug\Assembly-CSharp.pdb

@@ -1,0 +1,32 @@
+﻿S 3
+P 1
+
+NPCCount 1
+NPC 2 40 60
+
+NarrStart
+
+//[78계단의 사진과 칠팔이의 사진]
+
+Speaker Player
+Script "고양아 넌 이름이 뭐야?"
+
+Speaker 칠팔이
+Script "냐옹~"
+
+Speaker Player
+Script "어머, 이 고양이 귀여운 것 좀 봐. 너무 사랑스럽잖아?"
+
+Speaker Player
+Script "고양이랑 좀 놀까?"
+
+Speaker Player
+Script "안돼! 안돼! 그래도 학생의 본분은 공부야! 얼른 공부를 하러 가야겠어."
+
+Speaker Player
+Script "시간이 몇 시지? 으아 늦겠다."
+
+SceneShift 4
+
+NarrEnd
+

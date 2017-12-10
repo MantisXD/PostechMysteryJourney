@@ -1,0 +1,19 @@
+﻿S 12
+P 2
+
+NPCCount 1
+NPC 7 90 90
+
+NarrStart
+
+Speaker PONIX
+Script "좋아 다들 갈 준비가 되었지?"
+
+Speaker Player
+Script "약간은 떨리는 걸 미래의 포항공과대학교가 어떤 모습일지."
+
+Speaker PONIX
+Script "너무 긴장하지 말고. 이제 가볼까?"
+PhaseShift 3
+
+NarrEnd

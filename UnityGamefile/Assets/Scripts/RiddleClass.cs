@@ -10,6 +10,8 @@ public class RiddleClass {
     public string Riddle;
     public string Answer;
     public List<string> HintList;
+
+    public Sprite RiddleSprite;
 	// Use this for initialization
 	void Start () {
         HintList = new List<string>();

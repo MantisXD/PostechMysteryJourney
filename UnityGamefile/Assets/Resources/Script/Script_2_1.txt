@@ -1,31 +1,16 @@
 ﻿S 2
 P 1
 
-
-NPCCount 2
-//1번 Sprite를 쓰는 NPC를 배치하겠습니다.
-NPC 2 30 45
-NPC 5 50 95
+NPCCount 0
 
 NarrStart
 
-Speaker NULL
-Script "아....물주 안가져왔다" 
+//[새 지저귀는 소리와 포항공과대학교 전체 전망 사진]
+
+Speaker Player
+Script "아 여기가 그 포항공과대학교인가? 소문대로 엄청 예쁜 학교 캠퍼스에, 어머! 어머! 저것 좀 봐. 엄청 귀여운 고양이다."
+
+SceneShift 3
 
 NarrEnd
 
-ScriptList 2 1 Start
-
-Speaker 성하경
-Script "안녕~"
-SetSpeakerPhase 1
-
-ScriptList End
-
-ScriptList 5 1 Start
-
-Speaker NULL
-Script "아....RC 다시 가기 싫어어어어어"
-Shift 1 2
-
-ScriptList End

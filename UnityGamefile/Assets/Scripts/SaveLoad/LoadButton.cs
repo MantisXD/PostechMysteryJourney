@@ -72,7 +72,7 @@ public class LoadButton : MonoBehaviour {
         StartCoroutine(ProfileLoadCoroutine);
         //수수께끼를 다 만들었당
         //새 게임을 시작한다.
-        GameManager.GetComponent<SceneMove>().SceneShift(0, 0);
+        GameManager.GetComponent<SceneMove>().SceneShift(1,1);
 
     }
     //수수께끼의 Profile을 받아와서 저장합니다.(수수께끼를 새로 Load할때만 사용합니다)
@@ -117,6 +117,7 @@ public class LoadButton : MonoBehaviour {
             }
             c++;
         }
+        GameManager.GetComponent<RiddleHandler>().RiddleDataLoad(RiddleCache, 0, 0);
         RiddleProfileWWW.Dispose();
     }
     //새로운 세이브파일을 만듭니다. 

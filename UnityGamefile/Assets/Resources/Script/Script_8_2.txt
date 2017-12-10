@@ -1,0 +1,42 @@
+﻿S 8
+P 2
+
+NPCCount 3
+NPC 2 10 80
+NPC 3 60 50
+
+//[지곡회관 전체가 나오는 사진]
+
+//<기숙사로 가는 길 ? 서브 퀘스트 >
+
+ScriptList 2 1 Start
+
+Speaker 칠팔이
+Script "21동에 있으니까 가봐. 난 이제 낮잠을 자야겠어"
+SetSpeakerPhase 1
+
+ScriptList End
+
+//서브 퀘스트 #2 포항공대 대표 까불이
+
+ScriptList 4 1 Start
+Speaker 까불이
+Script "아, 냄새~. 어디서 자꾸 무식한 냄새가 나는 거야."
+
+Speaker Player
+Script "뭐라고? 방금 그거 나한테 한 말이야?"
+
+Speaker 까불이
+Script "그럼 여기 너 말고 누가 있어? 아~ 이거 무식한 데다 눈치까지 없구나? 이래가지고 내가 이런 애들이랑 놀아줄 수가 없다니까~"
+
+Speaker Player
+Script "그래서 학점은 잘 받았니?"
+
+Speaker 까불이
+Script "흠 그깟 학점이 뭐가 중요한데? 인생에서 중요한 건 학점이 아니라 지능이라고! 내 앞에서 그 지능이나 입증해보시지! 포항공과대학교에서 무시당하기 싫으면 수수께끼 한 번 풀어 보든가. 쉽지 않을걸?"
+
+Speaker Player
+Script "아 됐고, 난 지금 급한 일이 있어서 먼저 가봐야겠다. 다음에 만나면 풀어줄께"
+SetSpeakerPhase 1
+
+ScriptList End

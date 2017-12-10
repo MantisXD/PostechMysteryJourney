@@ -1,51 +1,13 @@
 ﻿S 1
-P 1
+P 2
 
-
-NPCCount 2
-
-NPC 1 50 60
-NPC 5 50 95
+NPCCount 0
 
 NarrStart
 
-Speaker 깝쭉이
-Script "왜 다시왔어?"
 Speaker NULL
-Script "물주 안가져옴"
-Speaker 깝쭉이
-Script "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ"
+Script "정말 재미있는 CT캠프였다. 짧은 시간이었지만 왜 그렇게 길게 느껴졌던 것일까? 그리고 PONIX라는 포항공과대학교의 마스코트는 유독 귀여웠다. 나중에 꼭 포항공과대학교 컴퓨터 공학과로 가고 싶다는 생각이 들었다. "
 
 NarrEnd
 
-ScriptList 1 1 Start
-
-Speaker 깝쭉이
-Script "아싸 3뚝!"
-Speaker NULL
-Script "야 그거 내 계정 아니냐"
-Speaker 깝쭉이
-Script "맞는데"
-Speaker NULL
-Script "니 뚝배기를 깨줄까?"
-Speaker 깝쭉이
-Script "내가 내는 수수께끼 맞추면 깨게 해줄께"
-Riddle 1
-
-ScriptList End
-
-ScriptList 1 2 Start
-
-Speaker 깝쭉이
-Script "물주 찾아가"
-SetSpeakerPhase 2
-
-ScriptList End
-
-ScriptList 5 1 Start
-
-Speaker NULL
-Script "여기까지 구현되어있습니다. 사실 이 맵 이동 화살표도 하나의 NPC에요"
-SetSpeakerPhase 1
-
-ScriptList End
+Ending

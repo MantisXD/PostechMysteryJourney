@@ -1,0 +1,4 @@
+﻿HintCount 3
+[1] "array_string과 curr_pos의 의미를 잘 생각해보자. curr_pos를 특히 더 유심히 생각해보자."
+[2] "curr_pos가 지금 가르키는 곳이 냉장고의 입구라고 생각하고 구현하여보자. "
+[3] "print를 주기적으로 해보면서 올바른 push와 pop을 할 수 있도록 해보자. "

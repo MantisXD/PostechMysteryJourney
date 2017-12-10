@@ -11,10 +11,18 @@ public class AnswerInputButtonScript : MonoBehaviour {
         Answerfield.text = " ";
         GameManager = GameObject.Find("GameManager");
 	}
+
+    public void ToggleText()
+    {
+        GameManager = GameObject.Find("GameManager");
+        GameManager.GetComponent<RiddleHandler>().ToggleText();
+    }
 	//답을 체크해보자
     public void CheckAnswer()
     {
-        if(GameManager.GetComponent<RiddleHandler>().RiddleCheck(Answerfield.text))
+        GameManager = GameObject.Find("GameManager");
+        Answerfield = GameObject.Find("AnswerInputField").GetComponent<InputField>();
+        if (GameManager.GetComponent<RiddleHandler>().RiddleCheck(Answerfield.text))
             //맞았어!
         {
             Answerfield.text = " ";

@@ -1,0 +1,87 @@
+﻿S 15
+P 4
+
+NPCCount 5
+NPC 1 x y
+NPC 2 x y
+NPC 3 x y
+NPC 4 x y
+NPC 5 x y
+
+ScriptList 1 1 start
+//[RC 로비]
+
+//서브 수수께끼 # 8, 9. 포항공과대학교 CC (난이도 5)
+
+Speaker ALIMI
+Script "안녕! 내 이름은 ALIMI. 가끔씩 이렇게 특별한 NPC들은 다른 사람들의 2배 정도에 해당하는 수수께끼 점수를 주는 경우도 있다고 해. 물론 그만큼 문제는 더 어렵겠지? 그리고 두 명의 모두 문제를 풀면 보너스 점수가 또 있을 수도 있어. 그럼 20000!"
+
+Speaker 여자 공대생
+Script "어머, 자기야. 저기 저 치킨 좀 봐"
+
+Speaker 남자 공대생
+Script "닭다리는 우리 자기꺼~"
+
+Speaker 플레이어
+Script "저 사람들 PONIX보고 하는 말 맞지?"
+
+Speaker PONIX
+Script "저기요! 초면에 치킨이라뇨. 무례하군요. 제가 아무리 닭처럼 생겼어도"
+
+Speaker 여자 공대생
+Script "어머, 미안해요 기분 나빴다면. 갑자기 치킨이 먹고 싶어서"
+
+Speaker 남자 공대생
+Script "나쁜 의미로 장난친 건 아니었어요. 근데 오신 김에 수수께끼 하나만 풀어보실래요?"
+
+Riddle 15
+
+RiddleSuccess 15 start
+
+Speaker 여자 공대생
+Script "후훗. 제법이네. 자기 오늘은 우리가 당했어."
+
+Speaker 남자 공대생
+Script "크윽... 내 자존심이 허락하지 않는다..."
+
+RiddleSuccess End
+
+RiddleFail 15 start
+
+Speaker 여자 공대생
+Script "푸..ㅎ...호호 다시 한번 해보세요!"
+
+RiddleFail End
+ScriptList End
+
+ScriptList 5 1 start
+//서브 수수께끼 #10. 과제에 시달리는 컴퓨터 공학부(난이도 3)
+
+Speaker 컴퓨터 공학부 학생
+Script "(중얼중얼) PL, 아키를 같이 듣는 것이 아니었어."
+
+Speaker PONIX
+Script "무슨 일 있어? 도와줄까?"
+
+Speaker 컴퓨터 공학부 학생
+Script "후.. 내 과제를 대신 해달라고 할 수는 없고. 내가 생각하고 있는 것이 있는데 풀어 봐봐. 조별 과제 규모가 너무 커서 힘들거든."
+
+Riddle 14
+
+RiddleSuccess 14 start
+
+Speaker 컴퓨터 공학부 학생
+Script "아! 덕분에 과제를 끝낼 수 있었어. 고마워!"
+
+RiddleSuccess End
+
+RiddleFail 14 start
+
+Speaker 컴퓨터 공학부 학생
+Script "아니네... 미안한데 혼자있고 싶어... 과제... 과제... 과제... "
+
+RiddleFail End
+
+ScriptListEnd
+
+Shift 1 2

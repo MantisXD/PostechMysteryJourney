@@ -1,0 +1,15 @@
+﻿S 6
+P 1
+
+NPCCount 0
+
+NarrStart
+
+//[5층 강의실 앞에서 찍은 사진]
+
+Speaker Player
+Script "여기가 그 강의실인가? 그럼 한 번 공부를 시작해볼까?"
+Sceneshift 7
+NarrEnd
+
+

@@ -89,9 +89,7 @@ public class NPCHandler : MonoBehaviour {
     {
         FieldNPCSpriteCache.Clear();
         StandingNPCSpirteCache.Clear();
-
-        string NPCMaptext;//스탠딩 NPC 대응표를 임시저장할 String입니다.
-        string NPCMaplocation = Application.dataPath + "/Resources/Images/StandingNPC/NPCmap.txt";//스탠딩 NPC대응표가 저장된 위치입니다.
+       //string NPCMaplocation = Application.dataPath + "/Resources/Images/StandingNPC/NPCmap.txt";//스탠딩 NPC대응표가 저장된 위치입니다.
         Texture2D temp;
 
 
