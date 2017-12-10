@@ -10,7 +10,7 @@ NarrStart
 Speaker Player
 Script "여기가 말로만 듣던 포항공과대학의 도서관이구나! 진짜 너무 예쁘다. 이런 곳에서 공부한다면 너무 날아갈 것만 같은걸. 난 반드시 대학을 포항공과대학교로 와야겠어."
 
-Sceneshift 6
+SceneShift 6
 
 NarrEnd
 

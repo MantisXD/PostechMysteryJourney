@@ -64,12 +64,11 @@ public class RiddleHandler : MonoBehaviour {
         //기본 정보를 3초에 거쳐 꺼지게 만든다.
         StartCoroutine(InfoShutdown());
         //힌트를 연동한다.
-        RiddleHintManager.GetComponent<RiddleHintManagement>().GetHint(RiddleList[Number].HintList, RiddleList[Number].Hint);
+        //RiddleHintManager.GetComponent<RiddleHintManagement>().GetHint(RiddleList[Number].HintList, RiddleList[Number].Hint);
         //수수께끼의 Resign 버튼과 Answer버튼에게 IsScriptLoaded를 전해준다.
         CurrentRiddle = Number;
         IsScriptLoaded = Value;
         //현재 수수께끼 번호를 저장한다
-
     }
 
 
